@@ -1,0 +1,3909 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+
+  /* PALETA JORNAL OZZY */
+
+  --rosa: #E0949E;
+  --rosa-claro: #E3BABE;
+
+  --creme: #F7EFDA;
+
+  --oliva: #98976B;
+
+  --marrom: #705E50;
+
+
+  /* CORES FUNCIONAIS */
+
+  --verde: #98976B;
+  --verde-escuro: #705E50;
+
+  --papel: #E3BABE;
+  --papel-claro: #F7EFDA;
+
+  --azul: #E0949E;
+  --azul-claro: #E3BABE;
+
+  --borda: #705E50;
+
+  --texto: #3f342d;
+}
+
+/* ==============================
+   BASE
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.025),
+      rgba(0,0,0,.025) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    #bcb5a1;
+
+  color: var(--texto);
+
+  font-family: "Special Elite", serif;
+}
+
+
+/* ==============================
+   CABEÇALHO
+================================ */
+
+.topo {
+  max-width: 1180px;
+
+  margin: 18px auto 0;
+  padding: 20px;
+
+  background: var(--verde);
+  color: #eee8d6;
+
+  border: 2px solid #102e2b;
+
+  box-shadow:
+    inset 1px 1px #6f8f87,
+    inset -2px -2px #082b28,
+    4px 4px rgba(0,0,0,.2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo-area h1 {
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 52px;
+  letter-spacing: 4px;
+
+  margin: 0;
+}
+
+
+.logo-area p {
+  margin: 4px 0 0;
+
+  font-size: 14px;
+}
+
+
+.data {
+  text-align: right;
+
+  font-family: "Pixelify Sans";
+}
+
+.data span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 13px;
+}
+
+
+/* ==============================
+   MENU
+================================ */
+
+.menu {
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  background: #d8d1be;
+
+  border:
+    2px solid var(--borda);
+
+  padding: 5px;
+
+  display: flex;
+}
+
+
+.menu a {
+  color: #222;
+  text-decoration: none;
+
+  font-family: "Pixelify Sans";
+
+  padding: 9px 18px;
+
+  border-right: 1px solid #858174;
+}
+
+
+.menu a:hover {
+  background: var(--azul);
+  color: white;
+}
+
+
+/* ==============================
+   LAYOUT
+================================ */
+
+.pagina {
+  max-width: 1180px;
+
+  margin: 15px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    310px;
+
+  gap: 15px;
+}
+
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+
+/* ==============================
+   JANELAS WINDOWS
+================================ */
+
+.janela {
+  background: var(--papel-claro);
+
+  border: 2px solid #817d70;
+
+  box-shadow:
+    inset 1px 1px white,
+    inset -1px -1px #aaa493,
+    3px 3px rgba(0,0,0,.18);
+}
+
+
+.barra-janela {
+  height: 31px;
+
+  padding-left: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1c5887,
+      #3c83b4
+    );
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: "Pixelify Sans";
+  font-weight: bold;
+}
+
+
+.controles {
+  display: flex;
+  gap: 2px;
+
+  margin-right: 3px;
+}
+
+
+.controles button {
+  width: 23px;
+  height: 23px;
+
+  padding: 0;
+
+  background: #d8d1bd;
+
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+
+  border-right: 2px solid #5c5a53;
+  border-bottom: 2px solid #5c5a53;
+
+  font-weight: bold;
+}
+
+
+.janela-conteudo {
+  padding: 18px;
+}
+
+
+/* ==============================
+   MANCHETE
+================================ */
+
+.categoria,
+.tag {
+  display: inline-block;
+
+  background: var(--verde);
+
+  color: white;
+
+  padding: 5px 9px;
+
+  font-family: "Pixelify Sans";
+  font-size: 13px;
+}
+
+
+.destaque h2 {
+  font-family: Georgia, serif;
+
+  font-size: 37px;
+  line-height: 1;
+
+  margin:
+    14px 0
+    8px;
+}
+
+
+.subtitulo {
+  font-size: 17px;
+
+  line-height: 1.5;
+}
+
+
+.imagem-placeholder {
+  min-height: 290px;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #cac4b4,
+      #cac4b4 10px,
+      #d9d3c2 10px,
+      #d9d3c2 20px
+    );
+
+  border: 2px inset #999487;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 18px 0;
+
+  font-family: "Pixelify Sans";
+
+  color: #777;
+}
+
+
+/* ==============================
+   BOTÕES
+================================ */
+
+.botao-retro {
+  background: #d8d1bd;
+
+  padding: 7px 14px;
+
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+
+  border-right: 2px solid #5f5b50;
+  border-bottom: 2px solid #5f5b50;
+
+  font-family: "Pixelify Sans";
+
+  cursor: pointer;
+}
+
+
+.botao-retro:active {
+  border-top: 2px solid #5f5b50;
+  border-left: 2px solid #5f5b50;
+
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+
+  transform: translate(1px, 1px);
+}
+
+
+/* ==============================
+   QUADRINHOS
+================================ */
+
+.titulo-secao {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.titulo-secao h2 {
+  margin: 0 0 15px;
+
+  font-family: "Pixelify Sans";
+}
+
+
+.quadrinho {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+}
+
+
+.quadro {
+  aspect-ratio: 1 / 1;
+
+  border: 3px solid #222;
+
+  background:
+    radial-gradient(
+      circle,
+      #bdb6a3 1px,
+      transparent 1px
+    );
+
+  background-size: 5px 5px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Pixelify Sans";
+}
+
+
+/* ==============================
+   NOTÍCIAS
+================================ */
+
+.noticias-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+}
+
+
+.card-noticia {
+  background: var(--papel-claro);
+
+  padding: 18px;
+
+  border: 2px solid #817d70;
+
+  box-shadow: 3px 3px rgba(0,0,0,.15);
+}
+
+
+.card-noticia h3 {
+  font-family: Georgia, serif;
+
+  font-size: 23px;
+
+  margin: 12px 0;
+}
+
+
+.card-noticia a {
+  color: var(--azul);
+
+  font-family: "Pixelify Sans";
+
+  font-weight: bold;
+}
+
+
+/* ==============================
+   ÚLTIMAS NOTÍCIAS
+================================ */
+
+.lista-noticias {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.lista-noticias li {
+  padding: 12px 5px;
+
+  border-bottom: 1px solid #aaa494;
+
+  line-height: 1.4;
+}
+
+
+.lista-noticias span {
+  display: block;
+
+  color: var(--verde);
+
+  font-family: "Pixelify Sans";
+
+  font-weight: bold;
+}
+
+
+/* ==============================
+   ENQUETE
+================================ */
+
+.sidebar label {
+  display: block;
+
+  margin: 12px 0;
+}
+
+
+/* ==============================
+   PUBLICIDADE
+================================ */
+
+.publicidade {
+  padding: 18px;
+
+  text-align: center;
+
+  background: #d5ceb8;
+
+  border: 2px dashed #454238;
+}
+
+
+.publicidade small {
+  display: block;
+
+  margin-bottom: 12px;
+}
+
+
+.publicidade strong {
+  display: block;
+
+  font-family: "Pixelify Sans";
+
+  font-size: 22px;
+}
+
+
+/* ==============================
+   RODAPÉ
+================================ */
+
+footer {
+  max-width: 1180px;
+
+  margin: 20px auto;
+
+  padding: 12px 16px;
+
+  background: var(--verde);
+
+  color: #eee8d6;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: "Pixelify Sans";
+
+  border: 2px solid #123c38;
+}
+
+
+/* ==============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 800px) {
+
+  .pagina {
+    grid-template-columns: 1fr;
+
+    margin: 10px;
+  }
+
+  .topo,
+  .menu,
+  footer {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .topo {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .data {
+    text-align: left;
+  }
+
+  .quadrinho {
+    grid-template-columns: 1fr;
+  }
+
+  .noticias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu {
+    overflow-x: auto;
+  }
+
+}
+
+/* ========================================
+   QUADRINHOS LATERAIS
+======================================== */
+
+.quadrinhos-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+/* título da seção */
+
+.titulo-quadrinhos {
+  background: var(--verde);
+  color: #f3eddb;
+
+  border: 2px solid #0d302d;
+
+  padding: 7px 10px;
+
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    inset 1px 1px #698d84,
+    inset -1px -1px #082b28;
+}
+
+
+.titulo-quadrinhos span {
+  margin-right: 5px;
+}
+
+
+/* CARD */
+
+.anuncio-quadrinho {
+  background: #e6dfcc;
+
+  border: 2px solid #6f6b60;
+
+  padding: 4px;
+
+  box-shadow:
+    inset 1px 1px white,
+    inset -1px -1px #aaa493,
+    3px 3px rgba(0,0,0,.18);
+}
+
+
+/* barra superior */
+
+.quadrinho-topo {
+  background: var(--verde);
+
+  color: #f4eedc;
+
+  padding: 5px 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 12px;
+}
+
+
+/* área da imagem */
+
+.quadrinho-imagem {
+  margin-top: 4px;
+
+  background: #f7f3e8;
+
+  border:
+    1px solid #777266;
+
+  overflow: hidden;
+}
+
+
+.quadrinho-imagem img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  /* efeito de impressão */
+  filter:
+    contrast(.97)
+    saturate(.88);
+
+  transition:
+    filter .15s,
+    transform .15s;
+}
+
+
+/* pequeno efeito de link antigo */
+
+.anuncio-quadrinho:hover img {
+  filter:
+    contrast(1)
+    saturate(1);
+
+  transform: scale(1.015);
+}
+
+
+/* informações */
+
+.quadrinho-info {
+  padding: 9px 7px 7px;
+
+  border-top: 1px solid #aaa493;
+}
+
+
+.quadrinho-info strong {
+  display: block;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 16px;
+
+  color: #272720;
+
+  margin-bottom: 5px;
+}
+
+
+.quadrinho-info span {
+  color: #164f72;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+
+/* deixa ainda mais parecido
+   com anúncio de jornal antigo */
+
+.anuncio-quadrinho:nth-child(even) {
+  transform: rotate(.15deg);
+}
+
+.anuncio-quadrinho:nth-child(odd) {
+  transform: rotate(-.1deg);
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 800px) {
+
+  .quadrinhos-lateral {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .titulo-quadrinhos {
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .quadrinhos-lateral {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* ========================================
+   LOGO DO CABEÇALHO
+======================================== */
+
+.logo-edicao {
+  width: 350px;
+  height: 205px;
+
+  flex: 0 0 330px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.logo-edicao img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+}
+
+/* ========================================
+   TIRINHAS COMO PUBLICIDADE
+======================================== */
+
+.anuncio-quadrinho {
+  position: relative;
+
+  background: #e6dfcc;
+
+  border: 2px solid #666156;
+
+  padding: 4px;
+
+  box-shadow:
+    inset 1px 1px #ffffff,
+    inset -1px -1px #999385,
+    3px 3px rgba(0,0,0,.20);
+}
+
+
+.quadrinho-topo {
+  min-height: 25px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #174c48,
+      #28645e
+    );
+
+  color: #f4eedc;
+
+  padding: 4px 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  font-size: 12px;
+}
+
+
+.quadrinho-imagem {
+  margin-top: 4px;
+
+  background: #f4efdf;
+
+  border:
+    2px inset #aaa493;
+
+  overflow: hidden;
+}
+
+
+.quadrinho-imagem img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  filter:
+    contrast(.95)
+    saturate(.85);
+
+  transition:
+    transform .15s,
+    filter .15s;
+}
+
+
+.anuncio-quadrinho:hover
+.quadrinho-imagem img {
+
+  transform: scale(1.015);
+
+  filter:
+    contrast(1)
+    saturate(1);
+}
+
+
+.quadrinho-info {
+  padding: 8px 6px 6px;
+
+  text-align: center;
+
+  border-top:
+    1px solid #aaa493;
+}
+
+
+.quadrinho-info strong {
+  display: block;
+
+  font-family:
+    "Pixelify Sans",
+    sans-serif;
+
+  font-size: 16px;
+
+  margin-bottom: 5px;
+}
+
+
+.quadrinho-info span {
+  font-family:
+    "Pixelify Sans",
+    sans-serif;
+
+  font-size: 10px;
+
+  color: #174c48;
+
+  letter-spacing: 1px;
+}
+
+
+/* aspecto levemente torto
+   de recorte de jornal */
+
+.sidebar .anuncio-quadrinho:nth-of-type(odd) {
+  transform: rotate(-0.15deg);
+}
+
+.sidebar .anuncio-quadrinho:nth-of-type(even) {
+  transform: rotate(0.12deg);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+  .logo-edicao {
+    width: 100%;
+
+    padding-left: 0;
+
+    justify-content: flex-start;
+  }
+
+
+  .logo-edicao img {
+    max-width: 190px;
+    max-height: 90px;
+  }
+
+}
+
+/* ========================================
+   NOVA PALETA - JORNAL OZZY
+======================================== */
+
+body {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(112, 94, 80, .025),
+      rgba(112, 94, 80, .025) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    #E3BABE;
+}
+
+
+/* CABEÇALHO */
+
+.topo {
+  background: #98976B;
+  color: #F7EFDA;
+
+  border-color: #705E50;
+
+  box-shadow:
+    inset 1px 1px #c3c19a,
+    inset -2px -2px #705E50,
+    4px 4px rgba(112, 94, 80, .25);
+}
+
+
+/* MENU */
+
+.menu {
+  background: #F7EFDA;
+  border-color: #705E50;
+}
+
+.menu a {
+  border-right-color: #E3BABE;
+}
+
+.menu a:hover {
+  background: #E0949E;
+  color: #F7EFDA;
+}
+
+
+/* BARRAS DAS JANELAS */
+
+.barra-janela {
+  background:
+    linear-gradient(
+      90deg,
+      #705E50,
+      #98976B
+    );
+
+  color: #F7EFDA;
+}
+
+
+/* JANELAS */
+
+.janela,
+.card-noticia {
+  background: #F7EFDA;
+
+  border-color: #705E50;
+}
+
+
+/* CATEGORIAS */
+
+.categoria,
+.tag {
+  background: #E0949E;
+  color: #F7EFDA;
+}
+
+
+/* BOTÕES */
+
+.botao-retro {
+  background: #E3BABE;
+
+  border-top-color: #F7EFDA;
+  border-left-color: #F7EFDA;
+
+  border-right-color: #705E50;
+  border-bottom-color: #705E50;
+
+  color: #3f342d;
+}
+
+.botao-retro:hover {
+  background: #E0949E;
+}
+
+
+/* TIRINHAS / ANÚNCIOS */
+
+.anuncio-quadrinho {
+  background: #E3BABE;
+  border-color: #705E50;
+}
+
+.quadrinho-topo {
+  background:
+    linear-gradient(
+      90deg,
+      #705E50,
+      #98976B
+    );
+
+  color: #F7EFDA;
+}
+
+.quadrinho-imagem {
+  background: #F7EFDA;
+}
+
+.quadrinho-info span {
+  color: #705E50;
+}
+
+
+/* PUBLICIDADE */
+
+.publicidade {
+  background: #E3BABE;
+  border-color: #705E50;
+}
+
+
+/* RODAPÉ */
+
+footer {
+  background: #98976B;
+  color: #F7EFDA;
+
+  border-color: #705E50;
+}
+
+/* ==================================================
+   PÁGINA DE NOTÍCIAS
+   Afeta somente pages/noticias.html
+================================================== */
+
+.pagina-noticias {
+    align-items: start;
+}
+
+/* ---------- INTRODUÇÃO ---------- */
+
+.pagina-noticias .conteudo-janela {
+    padding: 12px;
+}
+
+.pagina-noticias .conteudo-janela h2,
+.pagina-noticias .conteudo-janela h3 {
+    margin-top: 8px;
+}
+
+.pagina-noticias .conteudo-janela p {
+    line-height: 1.45;
+}
+
+
+/* ==================================================
+   DESTAQUE PRINCIPAL
+================================================== */
+
+.noticia-destaque {
+    margin-top: 12px;
+}
+
+.noticia-destaque h2 {
+    font-size: 26px;
+    line-height: 1.1;
+    margin: 12px 0;
+}
+
+.imagem-noticia-placeholder {
+    width: 100%;
+    min-height: 260px;
+
+    margin: 12px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #e3babe,
+            #e3babe 10px,
+            #f7efda 10px,
+            #f7efda 20px
+        );
+
+    border: 1px solid #705e50;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   INFORMAÇÕES DA NOTÍCIA
+================================================== */
+
+.meta-noticia {
+    margin: 12px 0;
+
+    font-size: 11px;
+    color: #705e50;
+
+    border-top: 1px dotted #98976b;
+
+    padding-top: 6px;
+}
+
+
+/* ==================================================
+   GRADE DE NOTÍCIAS
+================================================== */
+
+.grade-noticias {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-top: 12px;
+}
+
+.grade-noticias .card-noticia {
+    margin: 0;
+}
+
+.card-noticia {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-noticia .conteudo-janela {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.card-noticia h3 {
+    font-size: 18px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+}
+
+.card-noticia p {
+    flex: 1;
+}
+
+.card-noticia .botao-retro {
+    align-self: flex-start;
+}
+
+
+/* ==================================================
+   ÚLTIMAS NOTÍCIAS
+================================================== */
+
+.lista-ultimas {
+    padding: 0 !important;
+}
+
+.lista-ultimas a {
+    display: block;
+
+    padding: 9px 8px;
+
+    color: #3f342d;
+
+    text-decoration: none;
+
+    border-bottom:
+        1px dotted #98976b;
+
+    line-height: 1.25;
+}
+
+.lista-ultimas a:last-child {
+    border-bottom: 0;
+}
+
+.lista-ultimas a:hover {
+    background: #e3babe;
+}
+
+.lista-ultimas strong {
+    display: inline-block;
+
+    margin-right: 5px;
+
+    color: #705e50;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+}
+
+
+/* ==================================================
+   CATEGORIAS
+================================================== */
+
+.categorias-noticias {
+    padding: 6px !important;
+}
+
+.categorias-noticias a {
+    display: block;
+
+    padding: 6px 8px;
+
+    margin-bottom: 4px;
+
+    background: #e3babe;
+
+    border-top: 1px solid #f7efda;
+    border-left: 1px solid #f7efda;
+    border-right: 1px solid #705e50;
+    border-bottom: 1px solid #705e50;
+
+    color: #3f342d;
+
+    text-decoration: none;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 12px;
+}
+
+.categorias-noticias a:hover {
+    background: #e0949e;
+}
+
+.categorias-noticias a:active {
+    border-top-color: #705e50;
+    border-left-color: #705e50;
+    border-right-color: #f7efda;
+    border-bottom-color: #f7efda;
+}
+
+
+/* ==================================================
+   PUBLICIDADE
+================================================== */
+
+.pagina-noticias .publicidade {
+    margin-top: 12px;
+}
+
+
+/* ==================================================
+   MENU ATIVO
+================================================== */
+
+.menu .ativo {
+    background: #e0949e;
+    color: #f7efda;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 800px) {
+
+    .grade-noticias {
+        grid-template-columns: 1fr;
+    }
+
+    .noticia-destaque h2 {
+        font-size: 22px;
+    }
+
+    .imagem-noticia-placeholder {
+        min-height: 190px;
+    }
+}
+
+/* ========================================
+   TIPOGRAFIA OFICIAL - JORNAL OZZY
+======================================== */
+
+/* Elementos da interface */
+.logo-area h1,
+.menu,
+.barra-janela,
+.categoria,
+.tag,
+.botao-retro,
+.meta-noticia,
+.categorias-noticias,
+.lista-ultimas strong,
+footer {
+    font-family: "Pixelify Sans", monospace;
+}
+
+/* Títulos */
+h1,
+h2,
+h3 {
+    font-family: "Pixelify Sans", monospace;
+}
+
+/* Texto das matérias */
+body,
+p {
+    font-family: Georgia, "Times New Roman", serif;
+}
+/* ==================================================
+   PÁGINA DE QUADRINHOS
+   Afeta somente pages/quadrinhos.html
+================================================== */
+
+.pagina-quadrinhos {
+    align-items: start;
+}
+
+.pagina-quadrinhos .conteudo-janela {
+    padding: 12px;
+}
+
+
+/* ==================================================
+   QUADRINHO DO DIA
+================================================== */
+
+.quadrinho-destaque {
+    margin-top: 12px;
+}
+
+.quadrinho-destaque-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
+
+.quadrinho-destaque-cabecalho h2 {
+    margin: 8px 0 0;
+    font-size: 24px;
+}
+
+
+/* IMAGEM PRINCIPAL */
+
+.quadrinho-destaque-imagem {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+
+    overflow: hidden;
+}
+
+.quadrinho-destaque-imagem img {
+    display: block;
+
+    width: auto;
+    max-width: 100%;
+
+    height: auto;
+    max-height: 720px;
+
+    object-fit: contain;
+
+    background: #f7efda;
+
+    border: 1px solid #705e50;
+}
+
+
+/* ==================================================
+   RODAPÉ DO QUADRINHO
+================================================== */
+
+.quadrinho-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 10px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    color: #705e50;
+}
+
+.quadrinho-data {
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    color: #705e50;
+}
+
+
+/* ==================================================
+   ARQUIVO DE QUADRINHOS
+================================================== */
+
+.arquivo-quadrinhos {
+    margin-top: 12px;
+}
+
+.grade-quadrinhos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+/* ==================================================
+   CARD DE QUADRINHO
+================================================== */
+
+.card-quadrinho {
+    min-width: 0;
+
+    background: #f7efda;
+
+    border: 1px solid #705e50;
+
+    box-shadow:
+        2px 2px rgba(112, 94, 80, .20);
+}
+
+.card-quadrinho-imagem {
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px;
+
+    box-sizing: border-box;
+
+    background: #e3babe;
+
+    border-bottom: 1px solid #705e50;
+
+    overflow: hidden;
+}
+
+.card-quadrinho-imagem img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    background: white;
+}
+
+.card-quadrinho-info {
+    padding: 10px;
+}
+
+.card-quadrinho-info h3 {
+    margin: 8px 0;
+
+    font-size: 17px;
+}
+
+.card-quadrinho-info .quadrinho-data {
+    display: block;
+
+    margin-bottom: 10px;
+}
+
+
+/* ==================================================
+   CONTADOR
+================================================== */
+
+.arquivo-lateral {
+    text-align: center;
+}
+
+.contador-quadrinhos {
+    margin: 10px 0;
+
+    padding: 7px;
+
+    background: #3f342d;
+
+    color: #f7efda;
+
+    border:
+        2px inset #e3babe;
+
+    font-family: "Pixelify Sans", monospace;
+
+    font-size: 26px;
+
+    letter-spacing: 5px;
+}
+
+
+/* ==================================================
+   LISTA LATERAL
+================================================== */
+
+.lista-quadrinhos {
+    padding: 0 !important;
+}
+
+.lista-quadrinhos a {
+    display: block;
+
+    padding: 8px;
+
+    color: #3f342d;
+
+    text-decoration: none;
+
+    border-bottom:
+        1px dotted #98976b;
+
+    line-height: 1.25;
+}
+
+.lista-quadrinhos a:last-child {
+    border-bottom: 0;
+}
+
+.lista-quadrinhos a:hover {
+    background: #e3babe;
+}
+
+.lista-quadrinhos strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #705e50;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 800px) {
+
+    .grade-quadrinhos {
+        grid-template-columns: 1fr;
+    }
+
+    .quadrinho-destaque-cabecalho {
+        flex-direction: column;
+    }
+
+    .quadrinho-destaque-imagem img {
+        max-height: none;
+    }
+
+    .quadrinho-rodape {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-quadrinho-imagem {
+        height: 260px;
+    }
+}
+
+/* ==================================================
+   PÁGINA DE ARQUIVOS
+   Afeta somente pages/arquivos.html
+================================================== */
+
+.pagina-arquivos {
+    align-items: start;
+}
+
+.pagina-arquivos .conteudo-janela {
+    padding: 12px;
+}
+
+
+/* ==================================================
+   EXPLORADOR
+================================================== */
+
+.explorador-arquivos {
+    margin-top: 12px;
+}
+
+.arquivo-toolbar {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px;
+
+    background: #e3babe;
+
+    border-bottom: 1px solid #705e50;
+}
+
+.arquivo-endereco {
+    flex: 1;
+
+    padding: 5px 7px;
+
+    background: #f7efda;
+
+    border-top: 2px solid #705e50;
+    border-left: 2px solid #705e50;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   ÁRVORE DE ARQUIVOS
+================================================== */
+
+.arvore-arquivos {
+    padding: 12px;
+
+    background: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+.pasta {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 5px;
+
+    cursor: default;
+}
+
+.pasta:hover {
+    background: #e3babe;
+}
+
+.icone-pasta {
+    font-size: 16px;
+}
+
+.nivel-1 {
+    margin-left: 18px;
+
+    padding-left: 8px;
+
+    border-left: 1px dotted #98976b;
+}
+
+.nivel-2 {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    margin: 4px 0 7px 18px;
+
+    padding-left: 8px;
+
+    border-left: 1px dotted #98976b;
+}
+
+
+/* ==================================================
+   EDIÇÕES
+================================================== */
+
+.arquivo-edicao {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    padding: 6px 8px;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+
+    text-align: left;
+
+    color: #3f342d;
+
+    cursor: pointer;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+.arquivo-edicao:hover {
+    background: #e3babe;
+
+    border-color: #705e50;
+}
+
+.arquivo-edicao.selecionado {
+    background: #e0949e;
+
+    border: 1px dotted #705e50;
+}
+
+.icone-arquivo {
+    font-size: 16px;
+}
+
+.arquivo-edicao-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.arquivo-edicao-info small {
+    margin-top: 2px;
+
+    font-size: 9px;
+}
+
+
+/* ==================================================
+   CONTEÚDO DA EDIÇÃO
+================================================== */
+
+.conteudo-edicao {
+    margin-top: 12px;
+}
+
+.arquivo-secao + .arquivo-secao {
+    margin-top: 18px;
+}
+
+.arquivo-secao-titulo {
+    padding: 6px 8px;
+
+    margin-bottom: 6px;
+
+    background: #98976b;
+
+    color: #f7efda;
+
+    border: 1px solid #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   ITENS
+================================================== */
+
+.arquivo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 10px 5px;
+
+    border-bottom: 1px dotted #98976b;
+}
+
+.arquivo-item:last-child {
+    border-bottom: 0;
+}
+
+.arquivo-item h3 {
+    margin: 7px 0 0;
+
+    font-size: 16px;
+
+    line-height: 1.15;
+}
+
+
+/* ==================================================
+   QUADRINHO NO ARQUIVO
+================================================== */
+
+.arquivo-item-quadrinho {
+    display: grid;
+
+    grid-template-columns:
+        130px minmax(0, 1fr) auto;
+
+    align-items: center;
+}
+
+.arquivo-miniatura {
+    width: 130px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding: 4px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+
+    overflow: hidden;
+}
+
+.arquivo-miniatura img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    background: white;
+}
+
+.arquivo-item-conteudo {
+    min-width: 0;
+}
+
+
+/* ==================================================
+   ESTATÍSTICAS
+================================================== */
+
+.arquivo-estatisticas {
+    display: grid;
+
+    gap: 6px;
+}
+
+.arquivo-estatisticas div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 6px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+.arquivo-estatisticas span {
+    font-size: 10px;
+}
+
+.arquivo-estatisticas strong {
+    padding: 3px 5px;
+
+    background: #3f342d;
+
+    color: #f7efda;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   CAMPO DE PESQUISA
+================================================== */
+
+.campo-retro {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin: 7px 0;
+
+    padding: 6px;
+
+    background: #f7efda;
+
+    color: #3f342d;
+
+    border-top: 2px solid #705e50;
+    border-left: 2px solid #705e50;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+
+    outline: none;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+.campo-retro:focus {
+    background: #fffaf0;
+}
+
+
+/* ==================================================
+   STATUS
+================================================== */
+
+.status-arquivo p:first-child {
+    font-family: "Pixelify Sans", monospace;
+
+    color: #705e50;
+}
+
+.status-arquivo small {
+    display: block;
+
+    margin-top: 8px;
+
+    padding-top: 6px;
+
+    border-top: 1px dotted #98976b;
+
+    color: #705e50;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 800px) {
+
+    .arquivo-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .arquivo-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .arquivo-item-quadrinho {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .arquivo-miniatura {
+        width: 100%;
+        height: 180px;
+    }
+
+    .nivel-1 {
+        margin-left: 8px;
+    }
+
+    .nivel-2 {
+        margin-left: 10px;
+    }
+}
+
+/* ==================================================
+   PÁGINA INDIVIDUAL DE NOTÍCIA
+   Afeta somente pages/noticia.html
+================================================== */
+
+.pagina-noticia {
+    align-items: start;
+}
+
+.pagina-noticia .conteudo-janela {
+    padding: 0;
+}
+
+
+/* ==================================================
+   CABEÇALHO DA MATÉRIA
+================================================== */
+
+.materia-categoria {
+    padding: 16px 18px 0;
+}
+
+.materia-cabecalho {
+    padding: 8px 18px 16px;
+
+    border-bottom: 1px dotted #98976b;
+}
+
+.materia-cabecalho h1 {
+    max-width: 760px;
+
+    margin: 8px 0 10px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 30px;
+    line-height: 1.08;
+
+    color: #3f342d;
+}
+
+.materia-subtitulo {
+    max-width: 720px;
+
+    margin: 0 0 14px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.4;
+
+    color: #705e50;
+}
+
+.materia-informacoes {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px 18px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    color: #705e50;
+}
+
+
+/* ==================================================
+   IMAGEM PRINCIPAL
+================================================== */
+
+.materia-imagem {
+    margin: 0;
+
+    padding: 18px;
+
+    background: #e3babe;
+
+    border-bottom: 1px solid #705e50;
+}
+
+.materia-imagem-placeholder {
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #f7efda,
+            #f7efda 12px,
+            #e3babe 12px,
+            #e3babe 24px
+        );
+
+    border: 1px solid #705e50;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 13px;
+}
+
+.materia-imagem figcaption {
+    margin-top: 6px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-style: italic;
+
+    color: #705e50;
+}
+
+
+/* ==================================================
+   TEXTO DA MATÉRIA
+================================================== */
+
+.materia-texto {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    padding: 26px 28px 32px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: #3f342d;
+}
+
+.materia-texto p {
+    margin: 0 0 18px;
+
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.materia-texto p:first-child::first-letter {
+    float: left;
+
+    margin: 3px 6px 0 0;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 45px;
+    line-height: .8;
+
+    color: #e0949e;
+}
+
+
+/* ==================================================
+   CITAÇÃO
+================================================== */
+
+.materia-citacao {
+    margin: 26px 15px;
+
+    padding: 18px 20px;
+
+    background: #e3babe;
+
+    border-left: 5px solid #e0949e;
+    border-top: 1px solid #705e50;
+    border-bottom: 1px solid #705e50;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.45;
+
+    color: #3f342d;
+}
+
+.materia-citacao span {
+    display: block;
+
+    margin-top: 10px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+    font-style: normal;
+
+    color: #705e50;
+}
+
+
+/* ==================================================
+   RODAPÉ DA MATÉRIA
+================================================== */
+
+.materia-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 12px 18px;
+
+    background: #98976b;
+
+    border-top: 1px solid #705e50;
+}
+
+.materia-arquivo {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: "Pixelify Sans", monospace;
+
+    color: #f7efda;
+}
+
+.materia-arquivo span {
+    font-size: 10px;
+}
+
+.materia-arquivo strong {
+    font-size: 12px;
+}
+
+
+/* ==================================================
+   INFORMAÇÕES LATERAIS
+================================================== */
+
+.materia-dados {
+    display: grid;
+
+    gap: 5px;
+
+    padding: 8px !important;
+}
+
+.materia-dados div {
+    padding: 6px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+}
+
+.materia-dados span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+
+    color: #705e50;
+}
+
+.materia-dados strong {
+    display: block;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    color: #3f342d;
+}
+
+
+/* ==================================================
+   NOTÍCIAS RELACIONADAS
+================================================== */
+
+.noticias-relacionadas {
+    padding: 0 !important;
+}
+
+.noticias-relacionadas a {
+    display: block;
+
+    padding: 9px;
+
+    border-bottom: 1px dotted #98976b;
+
+    color: #3f342d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    line-height: 1.25;
+
+    text-decoration: none;
+}
+
+.noticias-relacionadas a:last-child {
+    border-bottom: 0;
+}
+
+.noticias-relacionadas a:hover {
+    background: #e3babe;
+
+    text-decoration: underline;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 800px) {
+
+    .materia-cabecalho h1 {
+        font-size: 24px;
+    }
+
+    .materia-subtitulo {
+        font-size: 15px;
+    }
+
+    .materia-imagem {
+        padding: 10px;
+    }
+
+    .materia-imagem-placeholder {
+        min-height: 190px;
+    }
+
+    .materia-texto {
+        padding: 20px 16px 26px;
+    }
+
+    .materia-texto p {
+        font-size: 15px;
+    }
+
+    .materia-citacao {
+        margin: 22px 0;
+    }
+
+    .materia-rodape {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* ==================================================
+   PÁGINA INDIVIDUAL DE QUADRINHO
+   Afeta somente pages/quadrinho.html
+================================================== */
+
+.pagina-quadrinho {
+    align-items: start;
+}
+
+.pagina-quadrinho .conteudo-janela {
+    padding: 0;
+}
+
+
+/* ==================================================
+   CABEÇALHO
+================================================== */
+
+.quadrinho-publicacao-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 16px 18px;
+
+    border-bottom: 1px dotted #98976b;
+}
+
+.quadrinho-publicacao-cabecalho h1 {
+    margin: 8px 0 0;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 28px;
+    line-height: 1.1;
+
+    color: #3f342d;
+}
+
+.quadrinho-publicacao-data {
+    min-width: 100px;
+
+    padding: 7px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+
+    text-align: center;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+.quadrinho-publicacao-data span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 9px;
+
+    color: #705e50;
+}
+
+.quadrinho-publicacao-data strong {
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   IMAGEM PRINCIPAL
+================================================== */
+
+.quadrinho-publicacao-imagem {
+    margin: 0;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    background: #e3babe;
+
+    border-bottom: 1px solid #705e50;
+
+    overflow: hidden;
+}
+
+.quadrinho-publicacao-imagem img {
+    display: block;
+
+    width: auto;
+    max-width: 100%;
+
+    height: auto;
+    max-height: 900px;
+
+    object-fit: contain;
+
+    background: white;
+
+    border: 1px solid #705e50;
+
+    box-shadow:
+        3px 3px rgba(112, 94, 80, .20);
+}
+
+
+/* ==================================================
+   INFORMAÇÕES DA PUBLICAÇÃO
+================================================== */
+
+.quadrinho-publicacao-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+
+    padding: 12px 18px;
+
+    background: #f7efda;
+
+    border-bottom: 1px dotted #98976b;
+}
+
+.quadrinho-publicacao-info div {
+    padding: 7px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+.quadrinho-publicacao-info span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 9px;
+
+    color: #705e50;
+}
+
+.quadrinho-publicacao-info strong {
+    display: block;
+
+    font-size: 11px;
+
+    color: #3f342d;
+}
+
+
+/* ==================================================
+   NAVEGAÇÃO
+================================================== */
+
+.quadrinho-navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    padding: 12px 18px;
+
+    background: #98976b;
+}
+
+
+/* ==================================================
+   INFORMAÇÕES LATERAIS
+================================================== */
+
+.quadrinho-dados {
+    display: grid;
+
+    gap: 5px;
+
+    padding: 8px !important;
+}
+
+.quadrinho-dados div {
+    padding: 6px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+}
+
+.quadrinho-dados span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+
+    color: #705e50;
+}
+
+.quadrinho-dados strong {
+    display: block;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    color: #3f342d;
+}
+
+
+/* ==================================================
+   OUTROS QUADRINHOS
+================================================== */
+
+.outros-quadrinhos {
+    padding: 0 !important;
+}
+
+.outros-quadrinhos a {
+    display: block;
+
+    padding: 9px;
+
+    border-bottom: 1px dotted #98976b;
+
+    color: #3f342d;
+
+    text-decoration: none;
+
+    line-height: 1.25;
+}
+
+.outros-quadrinhos a:last-child {
+    border-bottom: 0;
+}
+
+.outros-quadrinhos a:hover {
+    background: #e3babe;
+}
+
+.outros-quadrinhos strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+
+    color: #705e50;
+}
+
+
+/* ==================================================
+   ARQUIVO
+================================================== */
+
+.quadrinho-arquivo-status p {
+    margin-top: 0;
+
+    line-height: 1.4;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 800px) {
+
+    .quadrinho-publicacao-cabecalho {
+        flex-direction: column;
+    }
+
+    .quadrinho-publicacao-data {
+        min-width: 0;
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+    .quadrinho-publicacao-imagem {
+        padding: 10px;
+    }
+
+    .quadrinho-publicacao-imagem img {
+        max-height: none;
+    }
+
+    .quadrinho-publicacao-info {
+        grid-template-columns: 1fr;
+    }
+
+    .quadrinho-navegacao {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .quadrinho-navegacao .botao-retro {
+        text-align: center;
+    }
+}
+
+/* ==================================================
+   PÁGINA SOBRE
+   Afeta somente pages/sobre.html
+================================================== */
+
+.pagina-sobre {
+    align-items: start;
+}
+
+.pagina-sobre .conteudo-janela {
+    padding: 14px 16px;
+}
+
+.sobre-secao,
+.sobre-final {
+    margin-top: 12px;
+}
+
+
+/* ==================================================
+   APRESENTAÇÃO
+================================================== */
+
+.sobre-apresentacao h1 {
+    margin: 10px 0 14px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 27px;
+
+    color: #3f342d;
+}
+
+.sobre-apresentacao p,
+.sobre-secao p {
+    line-height: 1.55;
+}
+
+.sobre-destaque {
+    font-size: 16px;
+}
+
+
+/* ==================================================
+   AVISO INICIAL
+================================================== */
+
+.sobre-aviso {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 18px;
+    padding: 10px 12px;
+
+    background: #e3babe;
+
+    border-left: 5px solid #e0949e;
+    border-top: 1px solid #705e50;
+    border-right: 1px solid #705e50;
+    border-bottom: 1px solid #705e50;
+}
+
+.sobre-aviso strong {
+    flex-shrink: 0;
+
+    font-family: "Pixelify Sans", monospace;
+
+    color: #705e50;
+}
+
+.sobre-aviso span {
+    line-height: 1.3;
+}
+
+
+/* ==================================================
+   TÍTULOS DAS SEÇÕES
+================================================== */
+
+.sobre-secao h2 {
+    margin: 2px 0 14px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 21px;
+
+    color: #3f342d;
+}
+
+
+/* ==================================================
+   PROBLEMA IDENTIFICADO
+================================================== */
+
+.sobre-problema {
+    margin: 18px 0;
+
+    padding: 12px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+
+    box-shadow:
+        inset 2px 2px #f7efda,
+        inset -2px -2px #98976b;
+}
+
+.sobre-problema span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+
+    color: #705e50;
+}
+
+.sobre-problema strong {
+    display: block;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 14px;
+    line-height: 1.3;
+
+    color: #3f342d;
+}
+
+
+/* ==================================================
+   DIAGRAMA DA REDE OZZY
+================================================== */
+
+.rede-ozzy {
+    max-width: 420px;
+
+    margin: 24px auto;
+
+    padding: 18px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+
+    box-shadow:
+        inset 2px 2px #f7efda,
+        inset -2px -2px #98976b;
+
+    text-align: center;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+.rede-item {
+    width: 75%;
+
+    margin: 0 auto;
+
+    padding: 8px 10px;
+
+    box-sizing: border-box;
+
+    background: #f7efda;
+
+    border-top: 2px solid #fffaf0;
+    border-left: 2px solid #fffaf0;
+    border-right: 2px solid #705e50;
+    border-bottom: 2px solid #705e50;
+
+    font-size: 12px;
+}
+
+.rede-principal {
+    width: 90%;
+
+    background: #98976b;
+
+    color: #f7efda;
+
+    font-size: 14px;
+}
+
+.rede-afiliacoes {
+    background: #e0949e;
+
+    color: #f7efda;
+}
+
+.rede-terranova {
+    width: 90%;
+
+    background: #705e50;
+
+    color: #f7efda;
+}
+
+.rede-linha {
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #705e50;
+
+    font-family: monospace;
+    font-size: 18px;
+}
+
+
+/* ==================================================
+   IDENTIFICAÇÃO LATERAL
+================================================== */
+
+.sobre-identificacao {
+    display: grid;
+
+    gap: 5px;
+
+    padding: 8px !important;
+}
+
+.sobre-identificacao div {
+    padding: 6px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+}
+
+.sobre-identificacao span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+
+    color: #705e50;
+}
+
+.sobre-identificacao strong {
+    display: block;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    color: #3f342d;
+}
+
+
+/* ==================================================
+   STATUS
+================================================== */
+
+.sobre-status strong {
+    display: block;
+
+    padding: 7px;
+
+    background: #98976b;
+
+    color: #f7efda;
+
+    border: 1px solid #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+}
+
+.sobre-status p {
+    margin-bottom: 0;
+
+    line-height: 1.4;
+}
+
+
+/* ==================================================
+   MENSAGEM FINAL
+================================================== */
+
+.sobre-final .conteudo-janela {
+    padding: 22px;
+
+    text-align: center;
+}
+
+.sobre-final p {
+    margin: 0 0 8px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 16px;
+}
+
+.sobre-final blockquote {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-style: italic;
+
+    color: #705e50;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 800px) {
+
+    .sobre-aviso {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rede-ozzy {
+        padding: 12px;
+    }
+
+    .rede-item,
+    .rede-principal,
+    .rede-terranova {
+        width: 100%;
+    }
+
+    .sobre-final blockquote {
+        font-size: 17px;
+    }
+}
+
+/* ==================================================
+   AJUSTES EXCLUSIVOS DO DASHBOARD
+================================================== */
+
+/* Quadrinho do dia */
+
+#quadrinho-do-dia .quadrinho-destaque-imagem {
+    height: 360px;
+
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #e3babe;
+}
+
+#quadrinho-do-dia .quadrinho-destaque-imagem img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    border: 1px solid #705e50;
+}
+
+
+/* Rodapé do quadrinho */
+
+#quadrinho-do-dia .quadrinho-rodape {
+    padding: 10px 0 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Quadrinhos usados como publicidade na lateral */
+
+.sidebar .anuncio-quadrinho .quadrinho-imagem {
+    max-height: 300px;
+
+    overflow: hidden;
+}
+
+.sidebar .anuncio-quadrinho .quadrinho-imagem img {
+    width: 100%;
+    height: 100%;
+
+    max-height: 300px;
+
+    object-fit: contain;
+}
+
+/* ==================================================
+   ÚLTIMAS NOTÍCIAS
+   Usado no Dashboard e em Notícias
+================================================== */
+
+.lista-ultimas {
+    padding: 0 !important;
+}
+
+.lista-ultimas a {
+    display: block;
+
+    padding: 6px 7px;
+
+    border-bottom: 1px dotted #98976b;
+
+    color: #3f342d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.15;
+
+    text-decoration: none;
+}
+
+.lista-ultimas a:last-child {
+    border-bottom: none;
+}
+
+.lista-ultimas strong {
+    display: inline;
+
+    margin-right: 5px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+    font-weight: 600;
+
+    color: #705e50;
+}
+
+.lista-ultimas a:hover {
+    background: #e3babe;
+    color: #3f342d;
+}
+
+/* ==================================================
+   PRIMEIRO ACESSO - REDE OZZY
+================================================== */
+
+.acesso-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, .08),
+            rgba(0, 0, 0, .08) 1px,
+            transparent 1px,
+            transparent 3px
+        ),
+        rgba(63, 52, 45, .82);
+}
+
+
+/* ==================================================
+   JANELA
+================================================== */
+
+.acesso-janela {
+    width: 100%;
+    max-width: 680px;
+
+    background: #f7efda;
+
+    border-top: 2px solid #fffaf0;
+    border-left: 2px solid #fffaf0;
+    border-right: 3px solid #705e50;
+    border-bottom: 3px solid #705e50;
+
+    box-shadow:
+        8px 8px 0 rgba(0, 0, 0, .25);
+}
+
+
+/* ==================================================
+   BARRA SUPERIOR
+================================================== */
+
+.acesso-barra {
+    min-height: 28px;
+
+    padding: 5px 8px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #705e50,
+            #98976b
+        );
+
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   CONTEÚDO
+================================================== */
+
+.acesso-conteudo {
+    padding: 22px;
+}
+
+
+/* ==================================================
+   IDENTIDADE
+================================================== */
+
+.acesso-identidade {
+    padding-bottom: 16px;
+
+    border-bottom: 1px dotted #98976b;
+
+    text-align: center;
+}
+
+.acesso-status {
+    display: inline-block;
+
+    margin-bottom: 8px;
+    padding: 4px 7px;
+
+    background: #98976b;
+
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+}
+
+.acesso-identidade h1 {
+    margin: 0;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 38px;
+    letter-spacing: 2px;
+
+    color: #3f342d;
+}
+
+.acesso-identidade p {
+    margin: 4px 0 0;
+
+    color: #705e50;
+
+    font-size: 12px;
+}
+
+
+/* ==================================================
+   MENSAGEM
+================================================== */
+
+.acesso-mensagem {
+    margin: 20px auto;
+
+    max-width: 520px;
+
+    text-align: center;
+}
+
+.acesso-mensagem h2 {
+    margin: 0 0 7px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 18px;
+
+    color: #3f342d;
+}
+
+.acesso-mensagem p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    color: #705e50;
+}
+
+
+/* ==================================================
+   OPÇÕES
+================================================== */
+
+.acesso-opcoes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+
+/* ==================================================
+   CARDS
+================================================== */
+
+.acesso-card {
+    min-height: 190px;
+
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #e3babe;
+
+    border-top: 2px solid #fffaf0;
+    border-left: 2px solid #fffaf0;
+    border-right: 3px solid #705e50;
+    border-bottom: 3px solid #705e50;
+
+    border-radius: 0;
+
+    color: #3f342d;
+
+    cursor: pointer;
+
+    text-align: center;
+}
+
+.acesso-card:hover {
+    background: #e0949e;
+
+    color: #f7efda;
+}
+
+.acesso-card:active {
+    border-top: 3px solid #705e50;
+    border-left: 3px solid #705e50;
+    border-right: 2px solid #fffaf0;
+    border-bottom: 2px solid #fffaf0;
+}
+
+
+/* ==================================================
+   ÍCONES
+================================================== */
+
+.acesso-card-icone {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f7efda;
+
+    border: 1px solid #705e50;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 28px;
+}
+
+
+/* ==================================================
+   TEXTO DOS CARDS
+================================================== */
+
+.acesso-card strong {
+    font-family: "Pixelify Sans", monospace;
+    font-size: 18px;
+}
+
+.acesso-card p {
+    min-height: 36px;
+
+    margin: 8px 0 13px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.acesso-entrar {
+    padding: 5px 8px;
+
+    background: #f7efda;
+
+    border: 1px solid #705e50;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   EDITOR
+================================================== */
+
+.acesso-card-editor {
+    background: #98976b;
+
+    color: #f7efda;
+}
+
+.acesso-card-editor:hover {
+    background: #705e50;
+}
+
+
+/* ==================================================
+   AVISO
+================================================== */
+
+.acesso-aviso {
+    margin-top: 18px;
+
+    padding: 8px 10px;
+
+    background: #f4ecd7;
+
+    border: 1px solid #98976b;
+
+    color: #705e50;
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+.acesso-aviso strong {
+    font-family: "Pixelify Sans", monospace;
+}
+
+
+/* ==================================================
+   RODAPÉ
+================================================== */
+
+.acesso-rodape {
+    margin-top: 14px;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    color: #98976b;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 600px) {
+
+    .acesso-overlay {
+        padding: 10px;
+    }
+
+    .acesso-conteudo {
+        padding: 15px;
+    }
+
+    .acesso-opcoes {
+        grid-template-columns: 1fr;
+    }
+
+    .acesso-card {
+        min-height: 150px;
+    }
+
+    .acesso-identidade h1 {
+        font-size: 30px;
+    }
+
+    .acesso-barra span:last-child {
+        display: none;
+    }
+
+    .acesso-rodape {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}
+
+/* ==================================================
+   AUTENTICAÇÃO EDITORIAL
+================================================== */
+
+.login-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 10000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, .08),
+            rgba(0, 0, 0, .08) 1px,
+            transparent 1px,
+            transparent 3px
+        ),
+        rgba(63, 52, 45, .86);
+}
+
+
+/* JANELA */
+
+.login-janela {
+    width: 100%;
+    max-width: 540px;
+
+    background: #f7efda;
+
+    border-top: 2px solid #fffaf0;
+    border-left: 2px solid #fffaf0;
+    border-right: 3px solid #705e50;
+    border-bottom: 3px solid #705e50;
+
+    box-shadow:
+        8px 8px 0 rgba(0, 0, 0, .25);
+}
+
+
+/* BARRA */
+
+.login-barra {
+    min-height: 28px;
+
+    padding: 5px 8px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #705e50,
+            #98976b
+        );
+
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+}
+
+
+/* CONTEÚDO */
+
+.login-conteudo {
+    padding: 22px;
+}
+
+
+/* CABEÇALHO */
+
+.login-cabecalho {
+    display: grid;
+
+    grid-template-columns: 60px 1fr;
+
+    gap: 14px;
+
+    align-items: center;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px dotted #98976b;
+}
+
+.login-icone {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #98976b;
+
+    border-top: 2px solid #c9c8a3;
+    border-left: 2px solid #c9c8a3;
+    border-right: 2px solid #705e50;
+    border-bottom: 2px solid #705e50;
+
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 28px;
+}
+
+.login-cabecalho span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #98976b;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+}
+
+.login-cabecalho h2 {
+    margin: 0 0 4px;
+
+    color: #3f342d;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 19px;
+}
+
+.login-cabecalho p {
+    margin: 0;
+
+    color: #705e50;
+
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+
+/* STATUS */
+
+.login-status {
+    margin: 16px 0;
+
+    padding: 7px 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    background: #f4ecd7;
+
+    border: 1px solid #98976b;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+}
+
+.login-status-luz {
+    width: 8px;
+    height: 8px;
+
+    display: block;
+
+    background: #98976b;
+
+    border: 1px solid #705e50;
+}
+
+
+/* CAMPOS */
+
+.login-campo {
+    margin-bottom: 14px;
+}
+
+.login-campo label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+}
+
+.login-campo input {
+    width: 100%;
+
+    padding: 9px;
+
+    box-sizing: border-box;
+
+    background: #fffaf0;
+
+    border-top: 2px solid #705e50;
+    border-left: 2px solid #705e50;
+    border-right: 2px solid #d8cfb8;
+    border-bottom: 2px solid #d8cfb8;
+
+    border-radius: 0;
+
+    outline: none;
+
+    color: #3f342d;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 13px;
+}
+
+.login-campo input:focus {
+    background: #fffdf7;
+
+    outline: 1px dotted #e0949e;
+    outline-offset: -4px;
+}
+
+
+/* INFORMAÇÕES */
+
+.login-info {
+    margin: 18px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 6px;
+}
+
+.login-info div {
+    padding: 7px;
+
+    background: #e3babe;
+
+    border: 1px solid #98976b;
+}
+
+.login-info span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 8px;
+}
+
+.login-info strong {
+    display: block;
+
+    color: #3f342d;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+}
+
+
+/* BOTÕES */
+
+.login-acoes {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.login-autenticar {
+    background: #98976b !important;
+    color: #f7efda !important;
+}
+
+.login-autenticar:hover {
+    background: #705e50 !important;
+}
+
+
+/* RODAPÉ */
+
+.login-rodape {
+    margin-top: 18px;
+    padding-top: 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    border-top: 1px dotted #98976b;
+
+    color: #98976b;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 8px;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 520px) {
+
+    .login-overlay {
+        padding: 10px;
+    }
+
+    .login-conteudo {
+        padding: 15px;
+    }
+
+    .login-cabecalho {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .login-icone {
+        margin: auto;
+    }
+
+    .login-info {
+        grid-template-columns: 1fr;
+    }
+
+    .login-acoes {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .login-acoes .botao-retro {
+        width: 100%;
+    }
+
+    .login-barra span:last-child {
+        display: none;
+    }
+
+}

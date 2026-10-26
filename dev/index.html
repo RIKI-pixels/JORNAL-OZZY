@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema Editorial | Jornal Ozzy</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dev.css">
+</head>
+
+<body class="dev-body">
+
+
+    <!-- ========================================
+         CABEÇALHO DEV
+    ========================================= -->
+
+    <header class="dev-topo">
+
+        <div class="dev-identidade">
+
+            <span class="dev-sistema">
+                REDE_OZZY // SISTEMA_EDITORIAL
+            </span>
+
+            <h1>
+                Jornal Ozzy
+            </h1>
+
+            <p>
+                Terminal de Publicações — Terra-Nhova
+            </p>
+
+        </div>
+
+
+        <div class="dev-status">
+
+            <span>
+                OPERADOR
+            </span>
+
+            <strong>
+                REDAÇÃO
+            </strong>
+
+        </div>
+
+    </header>
+
+
+    <!-- ========================================
+         MENU DEV
+    ========================================= -->
+
+    <nav class="dev-menu">
+
+        <a href="index.html" class="ativo">
+            PAINEL
+        </a>
+
+        <a href="noticias.html">
+            NOTÍCIAS
+        </a>
+
+        <a href="quadrinhos.html">
+            QUADRINHOS
+        </a>
+
+        <a href="../index.html">
+            VER PORTAL
+        </a>
+
+    </nav>
+
+
+    <!-- ========================================
+         PAINEL
+    ========================================= -->
+
+    <main class="dev-container">
+
+
+        <!-- ========================================
+             STATUS DO SISTEMA
+        ========================================= -->
+
+        <section class="dev-janela">
+
+            <div class="dev-barra">
+
+                <span>
+                    PAINEL_DE_CONTROLE.EXE
+                </span>
+
+                <span>
+                    SISTEMA ONLINE
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+                <h2>
+                    Central da Redação
+                </h2>
+
+                <p>
+                    Gerenciamento de publicações da
+                    Edição Portuguesa de Terra-Nhova.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             RESUMO
+        ========================================= -->
+
+        <section class="dev-dashboard-grid">
+
+
+            <!-- NOTÍCIAS -->
+
+            <article class="dev-janela dev-resumo-card">
+
+                <div class="dev-barra">
+                    NOTICIAS.DAT
+                </div>
+
+                <div class="dev-conteudo">
+
+                    <span class="dev-resumo-numero" id="total-noticias">
+                        003
+                    </span>
+
+                    <strong>
+                        NOTÍCIAS PUBLICADAS
+                    </strong>
+
+                    <p>
+                        Registros disponíveis no portal.
+                    </p>
+
+                    <a
+                        href="noticias.html"
+                        class="botao-retro"
+                    >
+                        ABRIR EDITOR
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- QUADRINHOS -->
+
+            <article class="dev-janela dev-resumo-card">
+
+                <div class="dev-barra">
+                    QUADRINHOS.DAT
+                </div>
+
+                <div class="dev-conteudo">
+
+                    <span class="dev-resumo-numero" id="total-quadrinhos">
+                        004
+                    </span>
+
+                    <strong>
+                        QUADRINHOS PUBLICADOS
+                    </strong>
+
+                    <p>
+                        Registros disponíveis no arquivo.
+                    </p>
+
+                    <a
+                        href="quadrinhos.html"
+                        class="botao-retro"
+                    >
+                        ABRIR EDITOR
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTAQUE -->
+
+            <article class="dev-janela dev-resumo-card">
+
+                <div class="dev-barra">
+                    DESTAQUE.REF
+                </div>
+
+                <div class="dev-conteudo">
+
+                    <span class="dev-resumo-icone">
+                        ★
+                    </span>
+
+                    <strong>
+                        DESTAQUE ATUAL
+                    </strong>
+
+                    <p id="destaque-atual">
+                        Objeto desconhecido é detectado
+                        próximo ao Setor 22-Y
+                    </p>
+
+                    <a
+                        href="noticias.html"
+                        class="botao-retro"
+                    >
+                        GERENCIAR
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- QUADRINHO DO DIA -->
+
+            <article class="dev-janela dev-resumo-card">
+
+                <div class="dev-barra">
+                    QUADRINHO_DO_DIA.REF
+                </div>
+
+                <div class="dev-conteudo">
+
+                    <span class="dev-resumo-icone">
+                        ▣
+                    </span>
+
+                    <strong>
+                        QUADRINHO DO DIA
+                    </strong>
+
+                    <p id="quadrinho-atual">
+                        Odeio Barulho!
+                    </p>
+
+                    <a
+                        href="quadrinhos.html"
+                        class="botao-retro"
+                    >
+                        GERENCIAR
+                    </a>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ========================================
+             AÇÕES RÁPIDAS
+        ========================================= -->
+
+        <section class="dev-janela">
+
+            <div class="dev-barra">
+
+                <span>
+                    ACESSO_RAPIDO.EXE
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+                <div class="dev-atalhos">
+
+
+                    <a
+                        href="noticias.html"
+                        class="dev-atalho"
+                    >
+
+                        <span class="dev-atalho-icone">
+                            +
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                NOVA NOTÍCIA
+                            </strong>
+
+                            <small>
+                                Abrir editor de notícias
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="quadrinhos.html"
+                        class="dev-atalho"
+                    >
+
+                        <span class="dev-atalho-icone">
+                            +
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                NOVO QUADRINHO
+                            </strong>
+
+                            <small>
+                                Abrir editor de quadrinhos
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="../index.html"
+                        class="dev-atalho"
+                    >
+
+                        <span class="dev-atalho-icone">
+                            →
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                ABRIR PORTAL
+                            </strong>
+
+                            <small>
+                                Visualizar Jornal Ozzy
+                            </small>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             ÚLTIMAS PUBLICAÇÕES
+        ========================================= -->
+
+        <section class="dev-janela">
+
+            <div class="dev-barra">
+
+                <span>
+                    ATIVIDADE_RECENTE.LOG
+                </span>
+
+                <span>
+                    ÚLTIMOS REGISTROS
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+                <div
+                    class="dev-atividade"
+                    id="atividade-recente"
+                >
+
+
+                    <!-- REGISTRO 01 -->
+
+                    <article class="dev-atividade-item">
+
+                        <span class="dev-atividade-tipo">
+                            NOTÍCIA
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Objeto desconhecido é detectado
+                                próximo ao Setor 22-Y
+                            </strong>
+
+                            <small>
+                                04 OUT 2000 • 18:42
+                            </small>
+
+                        </div>
+
+                        <a
+                            href="noticias.html"
+                            class="botao-retro"
+                        >
+                            ABRIR
+                        </a>
+
+                    </article>
+
+
+                    <!-- REGISTRO 02 -->
+
+                    <article class="dev-atividade-item">
+
+                        <span class="dev-atividade-tipo">
+                            NOTÍCIA
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Conselho anuncia mudanças nas
+                                rotas comerciais do setor norte
+                            </strong>
+
+                            <small>
+                                04 OUT 2000 • 17:30
+                            </small>
+
+                        </div>
+
+                        <a
+                            href="noticias.html"
+                            class="botao-retro"
+                        >
+                            ABRIR
+                        </a>
+
+                    </article>
+
+
+                    <!-- REGISTRO 03 -->
+
+                    <article class="dev-atividade-item">
+
+                        <span class="dev-atividade-tipo dev-tipo-quadrinho">
+                            QUADRINHO
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Odeio Barulho!
+                            </strong>
+
+                            <small>
+                                04 OUT 2000
+                            </small>
+
+                        </div>
+
+                        <a
+                            href="quadrinhos.html"
+                            class="botao-retro"
+                        >
+                            ABRIR
+                        </a>
+
+                    </article>
+
+
+                    <!-- REGISTRO 04 -->
+
+                    <article class="dev-atividade-item">
+
+                        <span class="dev-atividade-tipo">
+                            NOTÍCIA
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Novo sistema promete reduzir
+                                atrasos nas transmissões
+                            </strong>
+
+                            <small>
+                                04 OUT 2000 • 16:15
+                            </small>
+
+                        </div>
+
+                        <a
+                            href="noticias.html"
+                            class="botao-retro"
+                        >
+                            ABRIR
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             INFORMAÇÕES DO SISTEMA
+        ========================================= -->
+
+        <section class="dev-janela">
+
+            <div class="dev-barra">
+                SISTEMA.INFO
+            </div>
+
+
+            <div class="dev-conteudo">
+
+                <div class="dev-sistema-info">
+
+                    <div>
+
+                        <span>
+                            REDE
+                        </span>
+
+                        <strong>
+                            JORNAL OZZY
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            AFILIAÇÃO
+                        </span>
+
+                        <strong>
+                            TERRA-NHOVA
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            IDIOMA
+                        </span>
+
+                        <strong>
+                            PORTUGUÊS
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            STATUS
+                        </span>
+
+                        <strong>
+                            ONLINE
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             RODAPÉ
+        ========================================= -->
+
+        <div class="dev-rodape">
+
+            REDE OZZY //
+            SISTEMA EDITORIAL //
+            TERRA-NHOVA
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

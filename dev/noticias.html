@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema Editorial | Notícias | Jornal Ozzy</title>
+
+    <!-- Por enquanto usamos o CSS principal -->
+    <link rel="stylesheet" href="../css/dev.css">
+</head>
+
+<body class="dev-body">
+
+
+    <!-- ========================================
+         CABEÇALHO DEV
+    ========================================= -->
+
+    <header class="dev-topo">
+
+        <div class="dev-identidade">
+
+            <span class="dev-sistema">
+                REDE_OZZY // SISTEMA_EDITORIAL
+            </span>
+
+            <h1>
+                Jornal Ozzy
+            </h1>
+
+            <p>
+                Terminal de Publicações — Terra-Nhova
+            </p>
+
+        </div>
+
+
+        <div class="dev-status">
+
+            <span>
+                OPERADOR
+            </span>
+
+            <strong>
+                REDAÇÃO
+            </strong>
+
+        </div>
+
+    </header>
+
+
+    <!-- ========================================
+         MENU DEV
+    ========================================= -->
+
+    <nav class="dev-menu">
+
+        <a href="index.html">
+            PAINEL
+        </a>
+
+        <a href="noticias.html" class="ativo">
+            NOTÍCIAS
+        </a>
+
+        <a href="quadrinhos.html">
+            QUADRINHOS
+        </a>
+
+        <a href="../index.html">
+            VER PORTAL
+        </a>
+
+    </nav>
+
+
+    <!-- ========================================
+         ÁREA PRINCIPAL
+    ========================================= -->
+
+    <main class="dev-container">
+
+
+        <!-- ========================================
+             CABEÇALHO DA ÁREA
+        ========================================= -->
+
+        <section class="dev-janela">
+
+            <div class="dev-barra">
+
+                <span>
+                    EDITOR_DE_NOTICIAS.EXE
+                </span>
+
+                <span>
+                    STATUS: PRONTO
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+                <h2>
+                    Nova publicação
+                </h2>
+
+                <p>
+                    Preencha os campos abaixo para preparar
+                    uma nova notícia para o Jornal Ozzy.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FORMULÁRIO
+        ========================================= -->
+
+        <section class="dev-janela dev-editor">
+
+            <div class="dev-barra">
+
+                <span>
+                    DADOS_DA_PUBLICACAO
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+
+                <form id="form-noticia">
+
+
+                    <!-- TÍTULO -->
+
+                    <div class="dev-campo dev-campo-grande">
+
+                        <label for="noticia-titulo">
+                            TÍTULO *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="noticia-titulo"
+                            name="titulo"
+                            placeholder="Digite o título da notícia"
+                        >
+
+                    </div>
+
+
+
+                    <!-- SUBTÍTULO -->
+
+                    <div class="dev-campo dev-campo-grande">
+
+                        <label for="noticia-subtitulo">
+                            SUBTÍTULO
+                        </label>
+
+                        <input
+                            type="text"
+                            id="noticia-subtitulo"
+                            name="subtitulo"
+                            placeholder="Resumo curto da publicação"
+                        >
+
+                    </div>
+
+
+
+                    <!-- LINHA -->
+
+                    <div class="dev-grid">
+
+
+                        <!-- CATEGORIA -->
+
+                        <div class="dev-campo">
+
+                            <label for="noticia-categoria">
+                                CATEGORIA *
+                            </label>
+
+                            <select
+                                id="noticia-categoria"
+                                name="categoria"
+                            >
+
+                                <option value="">
+                                    SELECIONE
+                                </option>
+
+                                <option value="terra-nhova">
+                                    TERRA-NHOVA
+                                </option>
+
+                                <option value="interestelar">
+                                    INTERESTELAR
+                                </option>
+
+                                <option value="politica">
+                                    POLÍTICA
+                                </option>
+
+                                <option value="ciencia">
+                                    CIÊNCIA
+                                </option>
+
+                                <option value="tecnologia">
+                                    TECNOLOGIA
+                                </option>
+
+                                <option value="transito-orbital">
+                                    TRÂNSITO ORBITAL
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- AUTOR -->
+
+                        <div class="dev-campo">
+
+                            <label for="noticia-autor">
+                                AUTOR
+                            </label>
+
+                            <input
+                                type="text"
+                                id="noticia-autor"
+                                name="autor"
+                                placeholder="Redação Jornal Ozzy"
+                            >
+
+                        </div>
+
+
+
+                        <!-- DATA -->
+
+                        <div class="dev-campo">
+
+                            <label for="noticia-data">
+                                DATA *
+                            </label>
+
+                            <input
+                                type="date"
+                                id="noticia-data"
+                                name="data"
+                            >
+
+                        </div>
+
+
+
+                        <!-- HORÁRIO -->
+
+                        <div class="dev-campo">
+
+                            <label for="noticia-hora">
+                                HORÁRIO *
+                            </label>
+
+                            <input
+                                type="time"
+                                id="noticia-hora"
+                                name="hora"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ========================================
+                         IMAGEM
+                    ========================================= -->
+
+                    <fieldset class="dev-bloco">
+
+                        <legend>
+                            IMAGEM DA NOTÍCIA
+                        </legend>
+
+
+                        <div class="dev-upload">
+
+                            <div
+                                class="dev-preview-imagem"
+                                id="preview-noticia-imagem"
+                            >
+
+                                <span>
+                                    SEM IMAGEM
+                                </span>
+
+                            </div>
+
+
+                            <div class="dev-upload-controles">
+
+                                <label
+                                    for="noticia-imagem"
+                                    class="botao-retro"
+                                >
+                                    SELECIONAR IMAGEM
+                                </label>
+
+
+                                <input
+                                    type="file"
+                                    id="noticia-imagem"
+                                    name="imagem"
+                                    accept="image/*"
+                                    hidden
+                                >
+
+
+                                <small>
+                                    JPG, PNG ou WEBP
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="dev-campo">
+
+                            <label for="noticia-legenda">
+                                LEGENDA DA IMAGEM
+                            </label>
+
+                            <input
+                                type="text"
+                                id="noticia-legenda"
+                                name="legenda"
+                                placeholder="Descrição ou crédito da imagem"
+                            >
+
+                        </div>
+
+                    </fieldset>
+
+
+
+                    <!-- ========================================
+                         CONTEÚDO
+                    ========================================= -->
+
+                    <div class="dev-campo dev-campo-grande">
+
+                        <label for="noticia-conteudo">
+                            CONTEÚDO DA MATÉRIA *
+                        </label>
+
+                        <textarea
+                            id="noticia-conteudo"
+                            name="conteudo"
+                            rows="14"
+                            placeholder="Escreva a matéria aqui..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- ========================================
+                         CITAÇÃO OPCIONAL
+                    ========================================= -->
+
+                    <fieldset class="dev-bloco">
+
+                        <legend>
+                            CITAÇÃO / DESTAQUE
+                        </legend>
+
+
+                        <div class="dev-campo">
+
+                            <label for="noticia-citacao">
+                                CITAÇÃO
+                            </label>
+
+                            <textarea
+                                id="noticia-citacao"
+                                name="citacao"
+                                rows="3"
+                                placeholder="Campo opcional"
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="dev-campo">
+
+                            <label for="noticia-citacao-autor">
+                                AUTOR / FONTE DA CITAÇÃO
+                            </label>
+
+                            <input
+                                type="text"
+                                id="noticia-citacao-autor"
+                                name="citacaoAutor"
+                                placeholder="Ex.: Departamento de Monitoramento Orbital"
+                            >
+
+                        </div>
+
+                    </fieldset>
+
+
+
+                    <!-- ========================================
+                         METADADOS OPCIONAIS
+                    ========================================= -->
+
+                    <fieldset class="dev-bloco">
+
+                        <legend>
+                            INFORMAÇÕES ADICIONAIS
+                        </legend>
+
+
+                        <div class="dev-grid dev-grid-2">
+
+
+                            <div class="dev-campo">
+
+                                <label for="noticia-origem">
+                                    ORIGEM
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="noticia-origem"
+                                    name="origem"
+                                    placeholder="Ex.: Terra-Nhova"
+                                >
+
+                            </div>
+
+
+                            <div class="dev-campo">
+
+                                <label for="noticia-setor">
+                                    SETOR
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="noticia-setor"
+                                    name="setor"
+                                    placeholder="Ex.: 22-Y"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+
+
+                    <!-- ========================================
+                         OPÇÕES DE PUBLICAÇÃO
+                    ========================================= -->
+
+                    <fieldset class="dev-bloco">
+
+                        <legend>
+                            PUBLICAÇÃO
+                        </legend>
+
+
+                        <label class="dev-check">
+
+                            <input
+                                type="checkbox"
+                                id="noticia-destaque"
+                                name="destaque"
+                            >
+
+                            <span>
+                                DEFINIR COMO NOTÍCIA EM DESTAQUE
+                            </span>
+
+                        </label>
+
+
+                        <p class="dev-ajuda">
+
+                            A notícia em destaque poderá ocupar
+                            a manchete principal do portal.
+
+                        </p>
+
+                    </fieldset>
+
+
+
+                    <!-- ========================================
+                         AÇÕES
+                    ========================================= -->
+
+                    <div class="dev-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            LIMPAR
+                        </button>
+
+
+                        <div>
+
+                            <button
+                                type="button"
+                                class="botao-retro"
+                            >
+                                PRÉ-VISUALIZAR
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="botao-retro dev-publicar"
+                            >
+                                PUBLICAR
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             PUBLICAÇÕES EXISTENTES
+        ========================================= -->
+
+        <section class="dev-janela dev-publicacoes">
+
+            <div class="dev-barra">
+
+                <span>
+                    PUBLICACOES.DAT
+                </span>
+
+                <span>
+                    003 REGISTROS
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+
+                <div class="dev-lista-cabecalho">
+
+                    <span>
+                        ID
+                    </span>
+
+                    <span>
+                        PUBLICAÇÃO
+                    </span>
+
+                    <span>
+                        CATEGORIA
+                    </span>
+
+                    <span>
+                        DATA
+                    </span>
+
+                    <span>
+                        AÇÕES
+                    </span>
+
+                </div>
+
+
+
+                <!-- PUBLICAÇÃO 01 -->
+
+                <article class="dev-publicacao-item">
+
+                    <span class="dev-id">
+                        042
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Objeto desconhecido é detectado
+                            próximo ao Setor 22-Y
+                        </strong>
+
+                        <small>
+                            REDAÇÃO JORNAL OZZY
+                        </small>
+
+                    </div>
+
+
+                    <span class="dev-tag">
+                        INTERESTELAR
+                    </span>
+
+
+                    <span>
+                        04 OUT 2000
+                    </span>
+
+
+                    <div class="dev-item-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EDITAR
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EXCLUIR
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PUBLICAÇÃO 02 -->
+
+                <article class="dev-publicacao-item">
+
+                    <span class="dev-id">
+                        041
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Conselho anuncia mudanças nas
+                            rotas comerciais do setor norte
+                        </strong>
+
+                        <small>
+                            REDAÇÃO JORNAL OZZY
+                        </small>
+
+                    </div>
+
+
+                    <span class="dev-tag">
+                        POLÍTICA
+                    </span>
+
+
+                    <span>
+                        04 OUT 2000
+                    </span>
+
+
+                    <div class="dev-item-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EDITAR
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EXCLUIR
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PUBLICAÇÃO 03 -->
+
+                <article class="dev-publicacao-item">
+
+                    <span class="dev-id">
+                        040
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Novo sistema promete reduzir
+                            atrasos nas transmissões
+                        </strong>
+
+                        <small>
+                            REDAÇÃO JORNAL OZZY
+                        </small>
+
+                    </div>
+
+
+                    <span class="dev-tag">
+                        TECNOLOGIA
+                    </span>
+
+
+                    <span>
+                        04 OUT 2000
+                    </span>
+
+
+                    <div class="dev-item-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EDITAR
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EXCLUIR
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             RODAPÉ DO SISTEMA
+        ========================================= -->
+
+        <div class="dev-rodape">
+
+            REDE OZZY //
+            SISTEMA EDITORIAL //
+            TERRA-NHOVA
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema Editorial | Quadrinhos | Jornal Ozzy</title>
+
+    <!-- CSS DO PORTAL -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- CSS DA ÁREA DEV -->
+    <link rel="stylesheet" href="../css/dev.css">
+</head>
+
+<body class="dev-body">
+
+
+    <!-- ========================================
+         CABEÇALHO DEV
+    ========================================= -->
+
+    <header class="dev-topo">
+
+        <div class="dev-identidade">
+
+            <span class="dev-sistema">
+                REDE_OZZY // SISTEMA_EDITORIAL
+            </span>
+
+            <h1>
+                Jornal Ozzy
+            </h1>
+
+            <p>
+                Terminal de Publicações — Terra-Nhova
+            </p>
+
+        </div>
+
+
+        <div class="dev-status">
+
+            <span>
+                OPERADOR
+            </span>
+
+            <strong>
+                REDAÇÃO
+            </strong>
+
+        </div>
+
+    </header>
+
+
+    <!-- ========================================
+         MENU DEV
+    ========================================= -->
+
+    <nav class="dev-menu">
+
+        <a href="index.html">
+            PAINEL
+        </a>
+
+        <a href="noticias.html">
+            NOTÍCIAS
+        </a>
+
+        <a href="quadrinhos.html" class="ativo">
+            QUADRINHOS
+        </a>
+
+        <a href="../index.html">
+            VER PORTAL
+        </a>
+
+    </nav>
+
+
+    <!-- ========================================
+         ÁREA PRINCIPAL
+    ========================================= -->
+
+    <main class="dev-container">
+
+
+        <!-- ========================================
+             CABEÇALHO
+        ========================================= -->
+
+        <section class="dev-janela">
+
+            <div class="dev-barra">
+
+                <span>
+                    EDITOR_DE_QUADRINHOS.EXE
+                </span>
+
+                <span>
+                    STATUS: PRONTO
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+                <h2>
+                    Novo quadrinho
+                </h2>
+
+                <p>
+                    Cadastre uma nova publicação no
+                    Arquivo de Quadrinhos do Jornal Ozzy.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             FORMULÁRIO
+        ========================================= -->
+
+        <section class="dev-janela dev-editor">
+
+            <div class="dev-barra">
+
+                <span>
+                    DADOS_DA_PUBLICACAO
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+
+                <form id="form-quadrinho">
+
+
+                    <!-- ========================================
+                         TÍTULO
+                    ========================================= -->
+
+                    <div class="dev-campo dev-campo-grande">
+
+                        <label for="quadrinho-titulo">
+                            TÍTULO *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="quadrinho-titulo"
+                            name="titulo"
+                            placeholder="Ex.: Odeio Barulho!"
+                        >
+
+                    </div>
+
+
+                    <!-- ========================================
+                         DADOS
+                    ========================================= -->
+
+                    <div class="dev-grid dev-grid-2">
+
+
+                        <!-- DATA -->
+
+                        <div class="dev-campo">
+
+                            <label for="quadrinho-data">
+                                DATA *
+                            </label>
+
+                            <input
+                                type="date"
+                                id="quadrinho-data"
+                                name="data"
+                            >
+
+                        </div>
+
+
+                        <!-- EDIÇÃO -->
+
+                        <div class="dev-campo">
+
+                            <label for="quadrinho-edicao">
+                                EDIÇÃO
+                            </label>
+
+                            <input
+                                type="text"
+                                id="quadrinho-edicao"
+                                name="edicao"
+                                placeholder="Ex.: 042"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ========================================
+                         IMAGEM
+                    ========================================= -->
+
+                    <fieldset class="dev-bloco">
+
+                        <legend>
+                            ARQUIVO DO QUADRINHO
+                        </legend>
+
+
+                        <div class="dev-upload dev-upload-quadrinho">
+
+
+                            <!-- PREVIEW -->
+
+                            <div
+                                class="dev-preview-imagem dev-preview-quadrinho"
+                                id="preview-quadrinho-imagem"
+                            >
+
+                                <span>
+                                    SEM IMAGEM
+                                </span>
+
+                            </div>
+
+
+                            <!-- CONTROLES -->
+
+                            <div class="dev-upload-controles">
+
+                                <label
+                                    for="quadrinho-imagem"
+                                    class="botao-retro"
+                                >
+                                    SELECIONAR IMAGEM
+                                </label>
+
+
+                                <input
+                                    type="file"
+                                    id="quadrinho-imagem"
+                                    name="imagem"
+                                    accept="image/png,image/jpeg,image/webp"
+                                    hidden
+                                >
+
+
+                                <small>
+                                    JPG, PNG ou WEBP
+                                </small>
+
+
+                                <small>
+                                    A imagem original será preservada.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- ========================================
+                         DESCRIÇÃO
+                    ========================================= -->
+
+                    <div class="dev-campo dev-campo-grande">
+
+                        <label for="quadrinho-descricao">
+                            DESCRIÇÃO / OBSERVAÇÃO
+                        </label>
+
+                        <textarea
+                            id="quadrinho-descricao"
+                            name="descricao"
+                            rows="4"
+                            placeholder="Informação opcional sobre a publicação..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- ========================================
+                         PUBLICAÇÃO
+                    ========================================= -->
+
+                    <fieldset class="dev-bloco">
+
+                        <legend>
+                            PUBLICAÇÃO
+                        </legend>
+
+
+                        <label class="dev-check">
+
+                            <input
+                                type="checkbox"
+                                id="quadrinho-destaque"
+                                name="destaque"
+                            >
+
+                            <span>
+                                DEFINIR COMO QUADRINHO DO DIA
+                            </span>
+
+                        </label>
+
+
+                        <p class="dev-ajuda">
+
+                            Quando marcado, este quadrinho poderá
+                            aparecer na área "Quadrinho do Dia"
+                            da página inicial.
+
+                        </p>
+
+                    </fieldset>
+
+
+                    <!-- ========================================
+                         AÇÕES
+                    ========================================= -->
+
+                    <div class="dev-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                            id="quadrinho-limpar"
+                        >
+                            LIMPAR
+                        </button>
+
+
+                        <div>
+
+                            <button
+                                type="button"
+                                class="botao-retro"
+                                id="quadrinho-preview"
+                            >
+                                PRÉ-VISUALIZAR
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="botao-retro dev-publicar"
+                                id="quadrinho-publicar"
+                            >
+                                PUBLICAR
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             PUBLICAÇÕES EXISTENTES
+        ========================================= -->
+
+        <section class="dev-janela dev-publicacoes">
+
+            <div class="dev-barra">
+
+                <span>
+                    QUADRINHOS.DAT
+                </span>
+
+                <span>
+                    004 REGISTROS
+                </span>
+
+            </div>
+
+
+            <div class="dev-conteudo">
+
+
+                <!-- CABEÇALHO DA LISTA -->
+
+                <div class="dev-lista-cabecalho">
+
+                    <span>
+                        ID
+                    </span>
+
+                    <span>
+                        PUBLICAÇÃO
+                    </span>
+
+                    <span>
+                        TIPO
+                    </span>
+
+                    <span>
+                        DATA
+                    </span>
+
+                    <span>
+                        AÇÕES
+                    </span>
+
+                </div>
+
+
+                <!-- ========================================
+                     QUADRINHO 004
+                ========================================= -->
+
+                <article class="dev-publicacao-item">
+
+                    <span class="dev-id">
+                        004
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Odeio Barulho!
+                        </strong>
+
+                        <small>
+                            EDIÇÃO 042
+                        </small>
+
+                    </div>
+
+
+                    <span class="dev-tag">
+                        QUADRINHO
+                    </span>
+
+
+                    <span>
+                        04 OUT 2000
+                    </span>
+
+
+                    <div class="dev-item-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EDITAR
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EXCLUIR
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ========================================
+                     QUADRINHO 003
+                ========================================= -->
+
+                <article class="dev-publicacao-item">
+
+                    <span class="dev-id">
+                        003
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Medo
+                        </strong>
+
+                        <small>
+                            EDIÇÃO 041
+                        </small>
+
+                    </div>
+
+
+                    <span class="dev-tag">
+                        QUADRINHO
+                    </span>
+
+
+                    <span>
+                        03 OUT 2000
+                    </span>
+
+
+                    <div class="dev-item-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EDITAR
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EXCLUIR
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ========================================
+                     QUADRINHO 002
+                ========================================= -->
+
+                <article class="dev-publicacao-item">
+
+                    <span class="dev-id">
+                        002
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Muitos Abacaxis!
+                        </strong>
+
+                        <small>
+                            EDIÇÃO 040
+                        </small>
+
+                    </div>
+
+
+                    <span class="dev-tag">
+                        QUADRINHO
+                    </span>
+
+
+                    <span>
+                        02 OUT 2000
+                    </span>
+
+
+                    <div class="dev-item-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EDITAR
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EXCLUIR
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ========================================
+                     QUADRINHO 001
+                ========================================= -->
+
+                <article class="dev-publicacao-item">
+
+                    <span class="dev-id">
+                        001
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            O Mundo Tá Um Caos
+                        </strong>
+
+                        <small>
+                            EDIÇÃO 039
+                        </small>
+
+                    </div>
+
+
+                    <span class="dev-tag">
+                        QUADRINHO
+                    </span>
+
+
+                    <span>
+                        01 OUT 2000
+                    </span>
+
+
+                    <div class="dev-item-acoes">
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EDITAR
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-retro"
+                        >
+                            EXCLUIR
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             RODAPÉ
+        ========================================= -->
+
+        <div class="dev-rodape">
+
+            REDE OZZY //
+            SISTEMA EDITORIAL //
+            ARQUIVO DE QUADRINHOS //
+            TERRA-NHOVA
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

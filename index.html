@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Jornal Ozzy</title>
+
+
+    <!-- ========================================
+         FONTES
+    ========================================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Special+Elite&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ========================================
+         CSS
+    ========================================= -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<!-- ========================================
+     PRIMEIRO ACESSO
+     Futuramente controlado pelo JavaScript
+========================================= -->
+
+<div class="acesso-overlay" id="acesso-inicial">
+
+    <section class="acesso-janela">
+
+        <!-- BARRA SUPERIOR -->
+
+        <div class="acesso-barra">
+
+            <span>
+                REDE_OZZY // IDENTIFICAÇÃO
+            </span>
+
+            <span>
+                CONEXÃO ESTABELECIDA
+            </span>
+
+        </div>
+
+
+        <!-- CONTEÚDO -->
+
+        <div class="acesso-conteudo">
+
+
+            <!-- IDENTIDADE -->
+
+            <div class="acesso-identidade">
+
+                <span class="acesso-status">
+                    ● TERMINAL CONECTADO
+                </span>
+
+                <h1>
+                    Jornal Ozzy
+                </h1>
+
+                <p>
+                    Edição Portuguesa de Terra-Nhova
+                </p>
+
+            </div>
+
+
+            <!-- MENSAGEM -->
+
+            <div class="acesso-mensagem">
+
+                <h2>
+                    IDENTIFIQUE SEU ACESSO
+                </h2>
+
+                <p>
+                    Terminal conectado à Rede Ozzy.
+                    Selecione o tipo de acesso para continuar.
+                </p>
+
+            </div>
+
+
+            <!-- OPÇÕES -->
+
+            <div class="acesso-opcoes">
+
+
+                <!-- LEITOR -->
+
+                <button
+                    type="button"
+                    class="acesso-card"
+                    id="acesso-leitor"
+                >
+
+                    <span class="acesso-card-icone">
+                        ▤
+                    </span>
+
+                    <strong>
+                        LEITOR
+                    </strong>
+
+                    <p>
+                        Acessar a edição portuguesa
+                        de Terra-Nhova.
+                    </p>
+
+                    <span class="acesso-entrar">
+                        ENTRAR NO JORNAL →
+                    </span>
+
+                </button>
+
+
+                <!-- EDITOR -->
+
+                <button
+                    type="button"
+                    class="acesso-card acesso-card-editor"
+                    id="acesso-editor"
+                >
+
+                    <span class="acesso-card-icone">
+                        ▣
+                    </span>
+
+                    <strong>
+                        EDITOR
+                    </strong>
+
+                    <p>
+                        Acessar o Sistema Editorial
+                        da Rede Ozzy.
+                    </p>
+
+                    <span class="acesso-entrar">
+                        IDENTIFICAR-SE →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- AVISO -->
+
+            <div class="acesso-aviso">
+
+                <strong>
+                    AVISO:
+                </strong>
+
+                O acesso editorial é restrito a operadores autorizados.
+
+            </div>
+
+
+            <!-- RODAPÉ -->
+
+            <div class="acesso-rodape">
+
+                <span>
+                    REDE OZZY
+                </span>
+
+                <span>
+                    TERRA-NHOVA
+                </span>
+
+                <span>
+                    TERMINAL 2000
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- ========================================
+     AUTENTICAÇÃO EDITORIAL
+     Futuramente controlada pelo JavaScript
+========================================= -->
+
+<div class="login-overlay" id="login-editorial">
+
+    <section class="login-janela">
+
+        <!-- BARRA SUPERIOR -->
+
+        <div class="login-barra">
+
+            <span>
+                AUTENTICACAO_EDITORIAL.EXE
+            </span>
+
+            <span>
+                ACESSO RESTRITO
+            </span>
+
+        </div>
+
+
+        <div class="login-conteudo">
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="login-cabecalho">
+
+                <div class="login-icone">
+                    ▣
+                </div>
+
+                <div>
+
+                    <span>
+                        REDE_OZZY // SISTEMA_EDITORIAL
+                    </span>
+
+                    <h2>
+                        Identificação do Operador
+                    </h2>
+
+                    <p>
+                        Insira suas credenciais para acessar
+                        o terminal da redação.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                class="login-status"
+                id="login-status"
+            >
+
+                <span class="login-status-luz"></span>
+
+                AGUARDANDO IDENTIFICAÇÃO
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+
+            <form id="form-login-editor">
+
+
+                <div class="login-campo">
+
+                    <label for="editor-usuario">
+                        IDENTIFICAÇÃO
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editor-usuario"
+                        name="usuario"
+                        autocomplete="username"
+                        placeholder="Operador"
+                    >
+
+                </div>
+
+
+                <div class="login-campo">
+
+                    <label for="editor-senha">
+                        SENHA DE ACESSO
+                    </label>
+
+                    <input
+                        type="password"
+                        id="editor-senha"
+                        name="senha"
+                        autocomplete="current-password"
+                        placeholder="••••••••"
+                    >
+
+                </div>
+
+
+                <!-- INFORMAÇÕES -->
+
+                <div class="login-info">
+
+                    <div>
+                        <span>REDE</span>
+                        <strong>JORNAL OZZY</strong>
+                    </div>
+
+                    <div>
+                        <span>AFILIAÇÃO</span>
+                        <strong>TERRA-NHOVA</strong>
+                    </div>
+
+                    <div>
+                        <span>NÍVEL</span>
+                        <strong>EDITORIAL</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- AÇÕES -->
+
+                <div class="login-acoes">
+
+                    <button
+                        type="button"
+                        class="botao-retro"
+                        id="login-cancelar"
+                    >
+                        ← CANCELAR
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="botao-retro login-autenticar"
+                        id="login-autenticar"
+                    >
+                        AUTENTICAR →
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- RODAPÉ -->
+
+            <div class="login-rodape">
+
+                <span>
+                    OSEU // REDE OZZY
+                </span>
+
+                <span>
+                    TERMINAL EDITORIAL
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+    <!-- ========================================
+         CABEÇALHO
+    ========================================= -->
+
+    <header class="topo">
+
+        <div class="logo-area">
+
+            <h1>
+                Jornal Ozzy
+            </h1>
+
+            <p>
+                Notícias, histórias e outras coisas importantes.
+            </p>
+
+        </div>
+
+
+        <div class="logo-edicao">
+
+            <img
+                src="assets/logo/logo-jo.png"
+                alt="Jornal Ozzy - Edição Portuguesa de Terra-Nhova"
+            >
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ========================================
+         MENU PRINCIPAL
+    ========================================= -->
+
+    <nav class="menu">
+
+        <a
+            href="index.html"
+            class="ativo"
+        >
+            INÍCIO
+        </a>
+
+        <a href="pages/noticias.html">
+            NOTÍCIAS
+        </a>
+
+        <a href="pages/quadrinhos.html">
+            QUADRINHOS
+        </a>
+
+        <a href="pages/arquivos.html">
+            ARQUIVOS
+        </a>
+
+        <a href="pages/sobre.html">
+            SOBRE
+        </a>
+
+    </nav>
+
+
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+    ========================================= -->
+
+    <main class="pagina">
+
+
+        <!-- ========================================
+             COLUNA PRINCIPAL
+        ========================================= -->
+
+        <section class="conteudo">
+
+
+            <!-- ========================================
+                 NOTÍCIA PRINCIPAL
+
+                 FUTURO:
+                 conteúdo preenchido pelo JavaScript
+            ========================================= -->
+
+            <article
+                class="janela destaque"
+                id="noticia-principal"
+            >
+
+                <div class="barra-janela">
+
+                    <span>
+                        NOTICIA_PRINCIPAL.TXT
+                    </span>
+
+
+                    <div class="controles">
+
+                        <button type="button">
+                            —
+                        </button>
+
+                        <button type="button">
+                            □
+                        </button>
+
+                        <button type="button">
+                            ×
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="janela-conteudo">
+
+
+                    <!-- CATEGORIA -->
+
+                    <span
+                        class="categoria"
+                        id="noticia-principal-categoria"
+                    >
+                        INTERESTELAR
+                    </span>
+
+
+                    <!-- TÍTULO -->
+
+                    <h2 id="noticia-principal-titulo">
+
+                        Objeto desconhecido é detectado
+                        próximo ao Setor 22-Y
+
+                    </h2>
+
+
+                    <!-- SUBTÍTULO -->
+
+                    <p
+                        class="subtitulo"
+                        id="noticia-principal-subtitulo"
+                    >
+
+                        Sistemas de monitoramento registraram
+                        durante a madrugada um objeto ainda não
+                        identificado próximo a Terra-Nhova.
+
+                    </p>
+
+
+                    <!-- IMAGEM -->
+
+                    <div
+                        class="imagem-placeholder"
+                        id="noticia-principal-imagem"
+                    >
+
+                        IMAGEM DA NOTÍCIA
+
+                    </div>
+
+
+                    <!-- RESUMO -->
+
+                    <p id="noticia-principal-resumo">
+
+                        O primeiro registro ocorreu durante a madrugada.
+                        Autoridades seguem analisando os dados coletados
+                        no Setor 22-Y.
+
+                    </p>
+
+
+                    <!-- LINK -->
+
+                    <a
+                        href="pages/noticia.html"
+                        class="botao-retro"
+                        id="noticia-principal-link"
+                    >
+
+                        LER MATÉRIA COMPLETA →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ========================================
+                 QUADRINHO DO DIA
+
+                 FUTURO:
+                 quadrinho escolhido entre publicações
+            ========================================= -->
+
+            <article
+                class="janela"
+                id="quadrinho-do-dia"
+            >
+
+                <div class="barra-janela">
+
+                    <span>
+                        QUADRINHO_DO_DIA.EXE
+                    </span>
+
+
+                    <div class="controles">
+
+                        <button type="button">
+                            —
+                        </button>
+
+                        <button type="button">
+                            □
+                        </button>
+
+                        <button type="button">
+                            ×
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="janela-conteudo">
+
+
+                    <div class="titulo-secao">
+
+                        <h2 id="quadrinho-dia-titulo">
+                            TIRINHA DO DIA
+                        </h2>
+
+                        <span>
+                            Jornal Ozzy
+                        </span>
+
+                    </div>
+
+
+                    <!-- IMAGEM DO QUADRINHO -->
+
+                    <div
+                        class="quadrinho-destaque-imagem"
+                        id="quadrinho-dia-imagem"
+                    >
+
+                        <img
+                            src="assets/quadrinhos/Odeio-barulho.png"
+                            alt="Quadrinho Odeio Barulho"
+                        >
+
+                    </div>
+
+
+                    <!-- NAVEGAÇÃO -->
+
+                    <div class="quadrinho-rodape">
+
+                        <span id="quadrinho-dia-data">
+                            04 OUT 2000
+                        </span>
+
+
+                        <a
+                            href="pages/quadrinho.html"
+                            class="botao-retro"
+                            id="quadrinho-dia-link"
+                        >
+
+                            LER QUADRINHO →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ========================================
+                 OUTRAS NOTÍCIAS
+
+                 FUTURO:
+                 cards gerados automaticamente
+            ========================================= -->
+
+            <section
+                class="noticias-grid"
+                id="noticias-recentes"
+            >
+
+
+                <!-- NOTÍCIA 01 -->
+
+                <article class="card-noticia">
+
+                    <span class="tag">
+                        POLÍTICA
+                    </span>
+
+
+                    <h3>
+
+                        Conselho anuncia mudanças nas
+                        rotas comerciais do setor norte
+
+                    </h3>
+
+
+                    <p>
+
+                        Novas regras entram em vigor após
+                        reunião extraordinária realizada
+                        nesta manhã.
+
+                    </p>
+
+
+                    <a href="pages/noticia.html">
+                        CONTINUAR LENDO &gt;
+                    </a>
+
+                </article>
+
+
+
+                <!-- NOTÍCIA 02 -->
+
+                <article class="card-noticia">
+
+                    <span class="tag">
+                        TECNOLOGIA
+                    </span>
+
+
+                    <h3>
+
+                        Novo sistema promete reduzir
+                        atrasos nas transmissões
+
+                    </h3>
+
+
+                    <p>
+
+                        Pesquisadores afirmam ter desenvolvido
+                        uma nova tecnologia para comunicação
+                        entre sistemas próximos.
+
+                    </p>
+
+
+                    <a href="pages/noticia.html">
+                        CONTINUAR LENDO &gt;
+                    </a>
+
+                </article>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- ========================================
+             BARRA LATERAL
+        ========================================= -->
+
+        <aside class="sidebar">
+
+
+            <!-- ========================================
+                 ÚLTIMAS NOTÍCIAS
+
+                 FUTURO:
+                 preenchidas automaticamente
+            ========================================= -->
+
+            <section class="janela">
+
+                <div class="barra-janela">
+
+                    <span>
+                        ULTIMAS_NOTICIAS
+                    </span>
+
+                </div>
+
+
+                <div class="janela-conteudo">
+
+                   <div
+                      class="lista-ultimas"
+                      id="ultimas-noticias"
+                      >               
+                       <a href="pages/noticia.html">
+                        <strong>18:42</strong>
+                         Objeto detectado no Setor 22-Y
+                        </a>
+
+                          <a href="pages/noticia.html">
+                            <strong>17:30</strong>
+                            Conselho altera rotas comerciais
+                           </a>
+
+                             <a href="pages/noticia.html">
+                              <strong>16:15</strong>
+                             Novo sistema de transmissão apresentado
+                            </a>
+
+                            <a href="pages/noticia.html">
+                              <strong>14:02</strong>
+                             Nave desaparece no Setor 7
+                           </a>
+                </div>
+
+                </div>
+
+            </section>
+            <!-- ========================================
+                 PUBLICIDADE / QUADRINHO 01
+            ========================================= -->
+
+            <article class="anuncio-quadrinho">
+
+                <div class="quadrinho-topo">
+
+                    <span>
+                        PUBLICIDADE.GIF
+                    </span>
+
+                    <span>
+                        ×
+                    </span>
+
+                </div>
+
+
+                <div class="quadrinho-imagem">
+
+                    <img
+                        src="assets/quadrinhos/Odeio-barulho.png"
+                        alt="Tirinha Odeio Barulho"
+                    >
+
+                </div>
+
+
+                <div class="quadrinho-info">
+
+                    <strong>
+                        ODEIO BARULHO!
+                    </strong>
+
+                    <span>
+                        [ PUBLICIDADE ]
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ========================================
+                 ENQUETE
+
+                 Permanece fixa inicialmente
+            ========================================= -->
+
+            <section
+                class="janela"
+                id="enquete"
+            >
+
+                <div class="barra-janela">
+
+                    <span>
+                        ENQUETE.EXE
+                    </span>
+
+                </div>
+
+
+                <div class="janela-conteudo">
+
+                    <h3>
+                        Você acredita em extraterrestres?
+                    </h3>
+
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="enquete"
+                            value="sim"
+                        >
+
+                        Sim
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="enquete"
+                            value="nao"
+                        >
+
+                        Não
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="enquete"
+                            value="talvez"
+                        >
+
+                        Talvez...
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="botao-retro"
+                    >
+
+                        VOTAR
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================================
+                 PUBLICIDADE / QUADRINHO 02
+            ========================================= -->
+
+            <article class="anuncio-quadrinho">
+
+                <div class="quadrinho-topo">
+
+                    <span>
+                        PROPAGANDA_02.GIF
+                    </span>
+
+                    <span>
+                        ×
+                    </span>
+
+                </div>
+
+
+                <div class="quadrinho-imagem">
+
+                    <img
+                        src="assets/quadrinhos/Medo.png"
+                        alt="Tirinha Medo"
+                    >
+
+                </div>
+
+
+                <div class="quadrinho-info">
+
+                    <strong>
+                        MEDO
+                    </strong>
+
+                    <span>
+                        [ CONTEÚDO PATROCINADO ]
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ========================================
+                 PUBLICIDADE RETRÔ
+            ========================================= -->
+
+            <div class="publicidade">
+
+                <small>
+                    PUBLICIDADE
+                </small>
+
+
+                <strong>
+                    VOCÊ PRECISA DE UM COMPUTADOR!
+                </strong>
+
+
+                <p>
+
+                    Pentium III
+                    <br>
+
+                    128MB RAM
+                    <br>
+
+                    HD 20GB
+
+                </p>
+
+
+                <button
+                    type="button"
+                    class="botao-retro"
+                >
+
+                    CLIQUE AQUI!!!
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 PUBLICIDADE / QUADRINHO 03
+            ========================================= -->
+
+            <article class="anuncio-quadrinho">
+
+                <div class="quadrinho-topo">
+
+                    <span>
+                        BANNER_03.GIF
+                    </span>
+
+                    <span>
+                        ×
+                    </span>
+
+                </div>
+
+
+                <div class="quadrinho-imagem">
+
+                    <img
+                        src="assets/quadrinhos/Muitos-abacaxis.png"
+                        alt="Tirinha Muitos Abacaxis"
+                    >
+
+                </div>
+
+
+                <div class="quadrinho-info">
+
+                    <strong>
+                        MUITOS ABACAXIS!
+                    </strong>
+
+                    <span>
+                        [ PUBLICIDADE ]
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ========================================
+                 PUBLICIDADE / QUADRINHO 04
+            ========================================= -->
+
+            <article class="anuncio-quadrinho">
+
+                <div class="quadrinho-topo">
+
+                    <span>
+                        BANNER_04.GIF
+                    </span>
+
+                    <span>
+                        ×
+                    </span>
+
+                </div>
+
+
+                <div class="quadrinho-imagem">
+
+                    <img
+                        src="assets/quadrinhos/Mundo-ta-um-caos.png"
+                        alt="Tirinha O Mundo Tá Um Caos"
+                    >
+
+                </div>
+
+
+                <div class="quadrinho-info">
+
+                    <strong>
+                        O MUNDO TÁ UM CAOS
+                    </strong>
+
+                    <span>
+                        [ ANÚNCIO ]
+                    </span>
+
+                </div>
+
+            </article>
+
+        </aside>
+
+    </main>
+
+
+
+    <!-- ========================================
+         RODAPÉ
+    ========================================= -->
+
+    <footer>
+
+        <span>
+            JORNAL OZZY © 2000
+        </span>
+
+        <span>
+            EDIÇÃO PORTUGUESA DE TERRA-NHOVA
+        </span>
+
+        <span>
+            Melhor visualizado em 800x600
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>

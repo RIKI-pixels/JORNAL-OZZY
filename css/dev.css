@@ -1,0 +1,965 @@
+/* ==================================================
+   JORNAL OZZY
+   SISTEMA EDITORIAL / ÁREA DEV
+================================================== */
+
+
+/* ==================================================
+   BASE
+================================================== */
+
+.dev-body {
+    margin: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(112, 94, 80, .025),
+            rgba(112, 94, 80, .025) 1px,
+            transparent 1px,
+            transparent 3px
+        ),
+        #e3babe;
+
+    color: #3f342d;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* ==================================================
+   CABEÇALHO
+================================================== */
+
+.dev-topo {
+    max-width: 1180px;
+
+    margin: 18px auto 0;
+    padding: 18px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: #98976b;
+    color: #f7efda;
+
+    border: 2px solid #705e50;
+
+    box-shadow:
+        inset 1px 1px #c3c19a,
+        inset -2px -2px #705e50,
+        4px 4px rgba(112, 94, 80, .20);
+}
+
+.dev-sistema {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    color: #e3babe;
+}
+
+.dev-identidade h1 {
+    margin: 0;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 34px;
+    letter-spacing: 2px;
+}
+
+.dev-identidade p {
+    margin: 4px 0 0;
+
+    font-size: 12px;
+}
+
+.dev-status {
+    min-width: 130px;
+
+    padding: 9px;
+
+    box-sizing: border-box;
+
+    background: #f7efda;
+
+    border-top: 2px solid #fffaf0;
+    border-left: 2px solid #fffaf0;
+    border-right: 2px solid #705e50;
+    border-bottom: 2px solid #705e50;
+
+    color: #3f342d;
+
+    font-family: "Pixelify Sans", monospace;
+}
+
+.dev-status span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 9px;
+
+    color: #705e50;
+}
+
+.dev-status strong {
+    display: block;
+
+    font-size: 13px;
+}
+
+
+/* ==================================================
+   MENU
+================================================== */
+
+.dev-menu {
+    max-width: 1180px;
+
+    margin: 0 auto 12px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    background: #f7efda;
+
+    border-left: 2px solid #705e50;
+    border-right: 2px solid #705e50;
+    border-bottom: 2px solid #705e50;
+}
+
+.dev-menu a {
+    padding: 9px 16px;
+
+    border-right: 1px solid #e3babe;
+
+    color: #3f342d;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    text-decoration: none;
+}
+
+.dev-menu a:hover,
+.dev-menu a.ativo {
+    background: #e0949e;
+    color: #f7efda;
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.dev-container {
+    max-width: 1180px;
+
+    margin: 0 auto 30px;
+}
+
+
+/* ==================================================
+   JANELAS
+================================================== */
+
+.dev-janela {
+    margin-bottom: 12px;
+
+    background: #f7efda;
+
+    border: 1px solid #705e50;
+
+    box-shadow:
+        2px 2px rgba(112, 94, 80, .20);
+}
+
+.dev-barra {
+    min-height: 25px;
+
+    padding: 5px 8px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #705e50,
+            #98976b
+        );
+
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+}
+
+.dev-conteudo {
+    padding: 16px;
+}
+
+.dev-conteudo h2 {
+    margin: 0 0 7px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 23px;
+}
+
+.dev-conteudo > p {
+    margin-top: 0;
+}
+
+
+/* ==================================================
+   FORMULÁRIO
+================================================== */
+
+.dev-campo {
+    min-width: 0;
+}
+
+.dev-campo-grande {
+    margin-bottom: 16px;
+}
+
+.dev-campo label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+
+    color: #705e50;
+}
+
+
+/* INPUTS */
+
+.dev-campo input,
+.dev-campo select,
+.dev-campo textarea {
+    width: 100%;
+
+    padding: 8px;
+
+    box-sizing: border-box;
+
+    background: #fffaf0;
+
+    border-top: 2px solid #705e50;
+    border-left: 2px solid #705e50;
+    border-right: 2px solid #d8cfb8;
+    border-bottom: 2px solid #d8cfb8;
+
+    border-radius: 0;
+
+    color: #3f342d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+
+    outline: none;
+}
+
+.dev-campo textarea {
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+.dev-campo input:focus,
+.dev-campo select:focus,
+.dev-campo textarea:focus {
+    background: #fffdf7;
+
+    outline: 1px dotted #e0949e;
+    outline-offset: -4px;
+}
+
+
+/* ==================================================
+   GRID DE CAMPOS
+================================================== */
+
+.dev-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        1.4fr
+        .8fr
+        .7fr;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+}
+
+.dev-grid-2 {
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    margin-bottom: 0;
+}
+
+
+/* ==================================================
+   FIELDSETS / BLOCOS
+================================================== */
+
+.dev-bloco {
+    margin: 0 0 16px;
+    padding: 14px;
+
+    background: #f4ecd7;
+
+    border: 1px solid #98976b;
+}
+
+.dev-bloco legend {
+    padding: 0 7px;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   UPLOAD DA IMAGEM
+================================================== */
+
+.dev-upload {
+    display: grid;
+
+    grid-template-columns: 240px 1fr;
+
+    gap: 15px;
+
+    margin-bottom: 14px;
+}
+
+.dev-preview-imagem {
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #f7efda,
+            #f7efda 10px,
+            #e3babe 10px,
+            #e3babe 20px
+        );
+
+    border: 1px solid #705e50;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+}
+
+.dev-preview-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #fff;
+}
+
+.dev-upload-controles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.dev-upload-controles small {
+    color: #705e50;
+
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   CHECKBOX
+================================================== */
+
+.dev-check {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 12px;
+}
+
+.dev-check input {
+    width: 15px;
+    height: 15px;
+
+    margin: 0;
+}
+
+.dev-ajuda {
+    margin: 8px 0 0 !important;
+
+    color: #705e50;
+
+    font-size: 12px;
+    font-style: italic;
+}
+
+
+/* ==================================================
+   BOTÕES / AÇÕES
+================================================== */
+
+.dev-acoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-top: 4px;
+}
+
+.dev-acoes > div {
+    display: flex;
+
+    gap: 8px;
+}
+
+.dev-acoes button {
+    cursor: pointer;
+}
+
+.dev-publicar {
+    background: #e0949e !important;
+
+    font-weight: bold;
+}
+
+.dev-publicar:hover {
+    background: #d98290 !important;
+}
+
+
+/* ==================================================
+   LISTA DE PUBLICAÇÕES
+================================================== */
+
+.dev-lista-cabecalho,
+.dev-publicacao-item {
+    display: grid;
+
+    grid-template-columns:
+        55px
+        minmax(280px, 1fr)
+        140px
+        120px
+        150px;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+.dev-lista-cabecalho {
+    padding: 7px 9px;
+
+    background: #98976b;
+
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+}
+
+.dev-publicacao-item {
+    padding: 10px 9px;
+
+    border-bottom: 1px dotted #98976b;
+}
+
+.dev-publicacao-item:last-child {
+    border-bottom: 0;
+}
+
+.dev-publicacao-item:hover {
+    background: #f0dfd2;
+}
+
+.dev-id {
+    font-family: "Pixelify Sans", monospace;
+    font-size: 13px;
+
+    color: #705e50;
+}
+
+.dev-publicacao-item strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 14px;
+}
+
+.dev-publicacao-item small {
+    display: block;
+
+    color: #705e50;
+
+    font-size: 10px;
+}
+
+.dev-tag {
+    width: fit-content;
+
+    padding: 4px 6px;
+
+    background: #e0949e;
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+}
+
+.dev-item-acoes {
+    display: flex;
+
+    gap: 5px;
+}
+
+.dev-item-acoes .botao-retro {
+    padding: 5px 7px;
+
+    font-size: 9px;
+}
+
+
+/* ==================================================
+   RODAPÉ
+================================================== */
+
+.dev-rodape {
+    padding: 10px;
+
+    background: #98976b;
+
+    border: 1px solid #705e50;
+
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 900px) {
+
+    .dev-topo,
+    .dev-menu,
+    .dev-container {
+        width: calc(100% - 20px);
+    }
+
+    .dev-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .dev-lista-cabecalho {
+        display: none;
+    }
+
+    .dev-publicacao-item {
+        grid-template-columns:
+            50px
+            1fr;
+    }
+
+    .dev-publicacao-item > * {
+        min-width: 0;
+    }
+
+    .dev-tag,
+    .dev-item-acoes {
+        grid-column: 2;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .dev-topo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dev-status {
+        width: 100%;
+    }
+
+    .dev-menu {
+        flex-wrap: wrap;
+    }
+
+    .dev-menu a {
+        flex: 1;
+
+        text-align: center;
+    }
+
+    .dev-grid,
+    .dev-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .dev-upload {
+        grid-template-columns: 1fr;
+    }
+
+    .dev-preview-imagem {
+        height: 190px;
+    }
+
+    .dev-acoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dev-acoes > div {
+        flex-direction: column;
+    }
+
+    .dev-acoes .botao-retro {
+        width: 100%;
+    }
+
+}
+
+/* ==================================================
+   DASHBOARD DEV
+================================================== */
+
+
+/* RESUMO */
+
+.dev-dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.dev-dashboard-grid .dev-janela {
+    margin-bottom: 0;
+}
+
+.dev-resumo-card .dev-conteudo {
+    min-height: 145px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dev-resumo-numero {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 38px;
+    line-height: 1;
+
+    color: #e0949e;
+}
+
+.dev-resumo-icone {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 34px;
+    line-height: 1;
+
+    color: #e0949e;
+}
+
+.dev-resumo-card strong {
+    font-family: "Pixelify Sans", monospace;
+    font-size: 12px;
+}
+
+.dev-resumo-card p {
+    flex: 1;
+
+    margin: 8px 0 14px;
+
+    line-height: 1.35;
+}
+
+
+/* ==================================================
+   ATALHOS
+================================================== */
+
+.dev-atalhos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+.dev-atalho {
+    min-height: 70px;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    background: #e3babe;
+
+    border-top: 2px solid #fffaf0;
+    border-left: 2px solid #fffaf0;
+    border-right: 2px solid #705e50;
+    border-bottom: 2px solid #705e50;
+
+    color: #3f342d;
+
+    text-decoration: none;
+}
+
+.dev-atalho:hover {
+    background: #e0949e;
+    color: #f7efda;
+}
+
+.dev-atalho-icone {
+    min-width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f7efda;
+
+    border: 1px solid #705e50;
+
+    color: #705e50;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 24px;
+}
+
+.dev-atalho strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 12px;
+}
+
+.dev-atalho small {
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   ATIVIDADE RECENTE
+================================================== */
+
+.dev-atividade {
+    border: 1px solid #98976b;
+}
+
+.dev-atividade-item {
+    display: grid;
+
+    grid-template-columns:
+        100px
+        1fr
+        70px;
+
+    gap: 12px;
+
+    align-items: center;
+
+    padding: 10px;
+
+    border-bottom: 1px dotted #98976b;
+}
+
+.dev-atividade-item:last-child {
+    border-bottom: 0;
+}
+
+.dev-atividade-item:hover {
+    background: #f0dfd2;
+}
+
+.dev-atividade-tipo {
+    width: fit-content;
+
+    padding: 4px 6px;
+
+    background: #e0949e;
+    color: #f7efda;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+}
+
+.dev-tipo-quadrinho {
+    background: #98976b;
+}
+
+.dev-atividade-item strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 14px;
+}
+
+.dev-atividade-item small {
+    color: #705e50;
+
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   INFORMAÇÕES DO SISTEMA
+================================================== */
+
+.dev-sistema-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+.dev-sistema-info div {
+    padding: 9px;
+
+    background: #e3babe;
+
+    border: 1px solid #705e50;
+}
+
+.dev-sistema-info span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 9px;
+
+    color: #705e50;
+}
+
+.dev-sistema-info strong {
+    display: block;
+
+    font-family: "Pixelify Sans", monospace;
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media (max-width: 750px) {
+
+    .dev-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dev-atalhos {
+        grid-template-columns: 1fr;
+    }
+
+    .dev-sistema-info {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .dev-atividade-item {
+        grid-template-columns:
+            85px
+            1fr;
+    }
+
+    .dev-atividade-item .botao-retro {
+        grid-column: 2;
+
+        width: fit-content;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .dev-sistema-info {
+        grid-template-columns: 1fr;
+    }
+
+}
