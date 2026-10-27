@@ -453,6 +453,86 @@ function criarCartaoNoticia(noticia) {
 
 
 /* ==========================================================
+   EXCLUSÃO LÓGICA DE NOTÍCIAS
+
+   Executada quando o editor clica em EXCLUIR.
+
+   Responsabilidades:
+   - Solicitar confirmação antes da exclusão.
+   - Validar a sessão do editor.
+   - Registrar a data e o usuário responsável.
+   - Preservar a notícia e sua imagem no Supabase.
+   - Atualizar a listagem após a exclusão.
+
+   Nenhum registro será apagado definitivamente.
+========================================================== */
+
+async function excluirNoticia(id) {
+
+    const confirmacao = window.confirm(
+        "Deseja realmente excluir esta notícia?\n\n" +
+        "A publicação será removida da listagem, " +
+        "mas poderá ser recuperada pelo administrador."
+    );
+
+    if (!confirmacao) {
+        return;
+    }
+
+    try {
+        const { data: usuario, error: erroUsuario } =
+            await supabase.auth.getUser();
+
+        if (erroUsuario || !usuario.user) {
+            throw new Error("Sessão editorial inválida.");
+        }
+
+        const { data: atualizadas, error } = await supabase
+            .from("noticias")
+            .update({
+                excluido_em: new Date().toISOString(),
+                excluido_por: usuario.user.id
+            })
+            .eq("id", id)
+            .is("excluido_em", null)
+            .select("id");
+
+        if (error) {
+            throw error;
+        }
+
+        if (!atualizadas?.length) {
+            throw new Error(
+                "A notícia não foi excluída. Verifique suas permissões."
+            );
+        }
+
+        // Se a notícia excluída estiver aberta para edição,
+        // impedimos que o formulário continue editando esse registro.
+        if (noticiaEmEdicao === id) {
+            formulario.reset();
+            noticiaEmEdicao = null;
+            botaoPublicar.textContent = "PUBLICAR";
+        }
+
+        await carregarNoticias();
+
+        alert(
+            "Notícia excluída com sucesso!\n\n" +
+            "O registro foi preservado para recuperação."
+        );
+
+    } catch (erro) {
+        console.error("[OZZY] Erro ao excluir notícia:", erro);
+
+        alert(
+            "Não foi possível excluir a notícia: " +
+            erro.message
+        );
+    }
+}
+
+/* ==========================================================
    7. CARREGAMENTO DAS NOTÍCIAS
 
    Executada ao abrir a página editorial.
