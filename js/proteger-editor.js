@@ -40,32 +40,51 @@ async function bloquearAcesso() {
 }
 
 
+
 /* ==========================================================
    3. VERIFICAÇÃO DO EDITOR
 
-   Executada ao carregar uma página administrativa.
-
    Responsabilidades:
-   - Validar a sessão com o servidor Supabase.
-   - Consultar o perfil do usuário autenticado.
-   - Confirmar o cargo de editor ou administrador.
-   - Liberar a interface somente após a verificação.
+   - Validar a identidade do usuário.
+   - Consultar as permissões editoriais.
+   - Medir o tempo de cada operação.
+   - Liberar o painel após autorização.
 ========================================================== */
 
 async function verificarAcessoEditorial() {
+    const inicio = performance.now();
+
     try {
+        /* 3.1 — Validar identidade */
+        const inicioUsuario = performance.now();
+
         const { data, error } = await supabase.auth.getUser();
+
+        console.log(
+            "[OZZY] Validação do usuário:",
+            Math.round(performance.now() - inicioUsuario),
+            "ms"
+        );
 
         if (error || !data.user) {
             await bloquearAcesso();
             return;
         }
 
+        /* 3.2 — Consultar permissões */
+        const inicioPerfil = performance.now();
+
         const { data: perfil, error: erroPerfil } = await supabase
             .from("perfis")
             .select("cargo")
             .eq("id", data.user.id)
             .single();
+
+        console.log(
+            "[OZZY] Consulta do perfil:",
+            Math.round(performance.now() - inicioPerfil),
+            "ms"
+        );
 
         if (
             erroPerfil ||
@@ -76,15 +95,21 @@ async function verificarAcessoEditorial() {
             return;
         }
 
-        // Libera o painel somente após validar a autorização.
+        /* 3.3 — Liberar painel */
         document.documentElement.style.visibility = "visible";
 
-    } catch (erro) {
-        console.error("Erro ao verificar acesso editorial:", erro);
+        console.log(
+            "[OZZY] Tempo total da proteção:",
+            Math.round(performance.now() - inicio),
+            "ms"
+        );
 
+    } catch (erro) {
+        console.error("[OZZY] Erro de acesso:", erro);
         await bloquearAcesso();
     }
 }
+
 
 
 /* ==========================================================
