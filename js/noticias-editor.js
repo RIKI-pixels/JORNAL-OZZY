@@ -244,3 +244,143 @@ const { error } = await supabase
 
 formulario?.addEventListener("submit", publicarNoticia);
 
+
+/* ==========================================================
+   6. CRIAÇÃO DOS CARTÕES DE NOTÍCIAS
+
+   Executada para cada notícia retornada pelo Supabase.
+
+   Responsabilidades:
+   - Criar os elementos visuais da publicação.
+   - Exibir título, autor, categoria e data.
+   - Preparar os botões de edição e exclusão.
+
+   Os botões serão ativados em etapas posteriores.
+========================================================== */
+
+function criarCartaoNoticia(noticia) {
+    const artigo = document.createElement("article");
+    artigo.className = "dev-publicacao-item";
+
+    const id = document.createElement("span");
+    id.className = "dev-id";
+    id.textContent = String(noticia.id).slice(0, 8);
+
+    const informacoes = document.createElement("div");
+
+    const titulo = document.createElement("strong");
+    titulo.textContent = noticia.titulo || "SEM TÍTULO";
+
+    const autor = document.createElement("small");
+    autor.textContent = noticia.autor || "REDAÇÃO JORNAL OZZY";
+
+    informacoes.append(titulo, autor);
+
+    const categoria = document.createElement("span");
+    categoria.className = "dev-tag";
+    categoria.textContent = noticia.categoria || "GERAL";
+
+    const data = document.createElement("span");
+
+    if (noticia.data_publicacao) {
+        const [ano, mes, dia] = noticia.data_publicacao.split("-");
+        data.textContent = `${dia}/${mes}/${ano}`;
+    } else {
+        data.textContent = "SEM DATA";
+    }
+
+    const acoes = document.createElement("div");
+    acoes.className = "dev-item-acoes";
+
+    const editar = document.createElement("button");
+    editar.type = "button";
+    editar.className = "botao-retro";
+    editar.textContent = "EDITAR";
+    editar.disabled = true;
+    editar.title = "Edição disponível em breve";
+
+    const excluir = document.createElement("button");
+    excluir.type = "button";
+    excluir.className = "botao-retro";
+    excluir.textContent = "EXCLUIR";
+    excluir.disabled = true;
+    excluir.title = "Exclusão disponível em breve";
+
+    acoes.append(editar, excluir);
+
+    artigo.append(id, informacoes, categoria, data, acoes);
+
+    return artigo;
+}
+
+
+/* ==========================================================
+   7. CARREGAMENTO DAS NOTÍCIAS
+
+   Executada ao abrir a página editorial.
+
+   Responsabilidades:
+   - Consultar as notícias não excluídas.
+   - Ordenar as publicações mais recentes primeiro.
+   - Atualizar a contagem de registros.
+   - Exibir os cartões na listagem.
+========================================================== */
+
+async function carregarNoticias() {
+    const lista = document.getElementById("noticias-lista");
+    const contador = document.getElementById("noticias-total");
+
+    if (!lista || !contador) {
+        return;
+    }
+
+    lista.textContent = "CARREGANDO PUBLICAÇÕES...";
+
+    try {
+        const { data: noticias, error } = await supabase
+            .from("noticias")
+            .select("id, titulo, autor, categoria, data_publicacao")
+            .is("excluido_em", null)
+            .order("criado_em", { ascending: false });
+
+        if (error) {
+            throw error;
+        }
+
+        lista.replaceChildren();
+
+        contador.textContent =
+            `${String(noticias.length).padStart(3, "0")} REGISTROS`;
+
+        if (noticias.length === 0) {
+            lista.textContent = "NENHUMA PUBLICAÇÃO ENCONTRADA.";
+            return;
+        }
+
+        const fragmento = document.createDocumentFragment();
+
+        noticias.forEach((noticia) => {
+            fragmento.appendChild(criarCartaoNoticia(noticia));
+        });
+
+        lista.appendChild(fragmento);
+
+    } catch (erro) {
+        console.error("[OZZY] Erro ao carregar notícias:", erro);
+        lista.textContent = "ERRO AO CARREGAR PUBLICAÇÕES.";
+    }
+}
+
+
+/* ==========================================================
+   8. INICIALIZAÇÃO DA LISTAGEM
+
+   Executada ao carregar o módulo JavaScript.
+
+   Responsabilidade:
+   - Buscar automaticamente as notícias cadastradas.
+========================================================== */
+
+carregarNoticias();
+
+
