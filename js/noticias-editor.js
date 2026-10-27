@@ -190,13 +190,25 @@ async function publicarNoticia(evento) {
             throw new Error("Sessão editorial inválida.");
         }
 
-        const { error } = await supabase
-            .from("noticias")
-            .insert({
-                ...noticia,
-                criado_por: usuario.user.id
-            });
+/* ==========================================================
+   ENVIO DA IMAGEM E REGISTRO DA NOTÍCIA
+========================================================== */
 
+botaoPublicar.textContent = "ENVIANDO IMAGEM...";
+
+const imagemUrl = await enviarImagemNoticia();
+
+botaoPublicar.textContent = "SALVANDO NOTÍCIA...";
+
+const { error } = await supabase
+    .from("noticias")
+    .insert({
+        ...noticia,
+        imagem_url: imagemUrl,
+        criado_por: usuario.user.id
+    });
+
+       
         if (error) {
             throw error;
         }
