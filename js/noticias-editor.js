@@ -318,13 +318,6 @@ const { error } = await supabase
             erro.message
         );
 
-    } finally {
-        botaoPublicar.disabled = false;
-        botaoPublicar.textContent = "PUBLICAR";
-    }
-}
-
-
 /* ==========================================================
    5. INICIALIZAÇÃO DO FORMULÁRIO
 
