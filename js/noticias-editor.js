@@ -1,4 +1,3 @@
-
 /* ==========================================================
    JORNAL OZZY — GERENCIAMENTO DE NOTÍCIAS
 
@@ -92,6 +91,71 @@ function validarNoticia(noticia) {
     return true;
 }
 
+/* ==========================================================
+   UPLOAD DE IMAGEM DA NOTÍCIA
+
+   Executada durante a publicação, quando o editor
+   seleciona uma imagem no formulário.
+
+   Responsabilidades:
+   - Verificar se uma imagem foi selecionada.
+   - Validar o formato e o tamanho do arquivo.
+   - Enviar a imagem ao Supabase Storage.
+   - Retornar o endereço público da imagem.
+
+   Se não houver imagem, retorna null.
+========================================================== */
+
+async function enviarImagemNoticia() {
+
+    const campoImagem = document.getElementById("noticia-imagem");
+    const arquivo = campoImagem?.files?.[0];
+
+    if (!arquivo) {
+        return null;
+    }
+
+    const formatosPermitidos = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+    if (!formatosPermitidos.includes(arquivo.type)) {
+        throw new Error("Utilize uma imagem JPG, PNG ou WEBP.");
+    }
+
+    const tamanhoMaximo = 5 * 1024 * 1024;
+
+    if (arquivo.size > tamanhoMaximo) {
+        throw new Error("A imagem deve ter no máximo 5 MB.");
+    }
+
+    const extensoes = {
+        "image/jpeg": "jpg",
+        "image/png": "png",
+        "image/webp": "webp"
+    };
+
+    const nomeArquivo = `${crypto.randomUUID()}.${extensoes[arquivo.type]}`;
+
+    const { error } = await supabase.storage
+        .from("imagens-noticias")
+        .upload(nomeArquivo, arquivo, {
+            contentType: arquivo.type,
+            upsert: false
+        });
+
+    if (error) {
+        throw error;
+    }
+
+    const { data } = supabase.storage
+        .from("imagens-noticias")
+        .getPublicUrl(nomeArquivo);
+
+    return data.publicUrl;
+}
 
 /* ==========================================================
    4. PUBLICAÇÃO DA NOTÍCIA
