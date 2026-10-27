@@ -157,30 +157,34 @@ async function enviarImagemNoticia() {
     return data.publicUrl;
 }
 
+
 /* ==========================================================
-   4. PUBLICAÇÃO DA NOTÍCIA
+   PUBLICAR OU ATUALIZAR NOTÍCIA
 
    Executada quando o editor envia o formulário.
 
    Responsabilidades:
-   - Impedir o envio tradicional da página.
-   - Validar a sessão do usuário.
-   - Validar os dados preenchidos.
-   - Inserir a notícia no Supabase.
-   - Informar o resultado ao editor.
+   - Validar os dados e a sessão editorial.
+   - Criar uma notícia quando não houver edição ativa.
+   - Atualizar a notícia selecionada quando estiver editando.
+   - Preservar a imagem existente se nenhuma nova for enviada.
+   - Atualizar a listagem após salvar.
 ========================================================== */
 
 async function publicarNoticia(evento) {
     evento.preventDefault();
 
     const noticia = coletarDadosNoticia();
+    const editando = noticiaEmEdicao !== null;
 
     if (!validarNoticia(noticia)) {
         return;
     }
 
     botaoPublicar.disabled = true;
-    botaoPublicar.textContent = "PUBLICANDO...";
+    botaoPublicar.textContent = editando
+        ? "SALVANDO ALTERAÇÕES..."
+        : "PUBLICANDO...";
 
     try {
         const { data: usuario, error: erroUsuario } =
@@ -189,6 +193,95 @@ async function publicarNoticia(evento) {
         if (erroUsuario || !usuario.user) {
             throw new Error("Sessão editorial inválida.");
         }
+
+        /* ================================================
+           UPLOAD DE IMAGEM
+
+           Só envia um novo arquivo quando selecionado.
+           Na edição, mantém a imagem anterior caso
+           o editor não escolha outra.
+        ================================================= */
+
+        const campoImagem = document.getElementById("noticia-imagem");
+        const possuiNovaImagem = campoImagem?.files?.length > 0;
+
+        if (possuiNovaImagem) {
+            botaoPublicar.textContent = "ENVIANDO IMAGEM...";
+            noticia.imagem_url = await enviarImagemNoticia();
+        } else if (editando) {
+            delete noticia.imagem_url;
+        }
+
+        /* ================================================
+           EDIÇÃO DE NOTÍCIA EXISTENTE
+        ================================================= */
+
+        if (editando) {
+            const { data: atualizadas, error } = await supabase
+                .from("noticias")
+                .update(noticia)
+                .eq("id", noticiaEmEdicao)
+                .is("excluido_em", null)
+                .select("id");
+
+            if (error) {
+                throw error;
+            }
+
+            if (!atualizadas?.length) {
+                throw new Error("A notícia não foi atualizada.");
+            }
+
+            alert("Notícia atualizada com sucesso!");
+
+        } else {
+
+            /* ================================================
+               PUBLICAÇÃO DE NOVA NOTÍCIA
+            ================================================= */
+
+            const { error } = await supabase
+                .from("noticias")
+                .insert({
+                    ...noticia,
+                    criado_por: usuario.user.id
+                });
+
+            if (error) {
+                throw error;
+            }
+
+            alert("Notícia publicada com sucesso!");
+        }
+
+        /* ================================================
+           RESTAURAR FORMULÁRIO APÓS SALVAR
+        ================================================= */
+
+        formulario.reset();
+        noticiaEmEdicao = null;
+
+        botaoPublicar.textContent = "PUBLICAR";
+
+        await carregarNoticias();
+
+    } catch (erro) {
+        console.error("[OZZY] Erro ao salvar notícia:", erro);
+
+        alert(
+            "Não foi possível salvar a notícia: " +
+            erro.message
+        );
+
+    } finally {
+        botaoPublicar.disabled = false;
+
+        botaoPublicar.textContent =
+            noticiaEmEdicao !== null
+                ? "SALVAR ALTERAÇÕES"
+                : "PUBLICAR";
+    }
+}
 
 /* ==========================================================
    ENVIO DA IMAGEM E REGISTRO DA NOTÍCIA
