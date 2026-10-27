@@ -284,41 +284,6 @@ async function publicarNoticia(evento) {
 }
 
 /* ==========================================================
-   ENVIO DA IMAGEM E REGISTRO DA NOTÍCIA
-========================================================== */
-
-botaoPublicar.textContent = "ENVIANDO IMAGEM...";
-
-const imagemUrl = await enviarImagemNoticia();
-
-botaoPublicar.textContent = "SALVANDO NOTÍCIA...";
-
-const { error } = await supabase
-    .from("noticias")
-    .insert({
-        ...noticia,
-        imagem_url: imagemUrl,
-        criado_por: usuario.user.id
-    });
-
-       
-        if (error) {
-            throw error;
-        }
-
-        alert("Notícia publicada com sucesso!");
-
-        formulario.reset();
-
-    } catch (erro) {
-        console.error("Erro ao publicar notícia:", erro);
-
-        alert(
-            "Não foi possível publicar a notícia: " +
-            erro.message
-        );
-
-/* ==========================================================
    5. INICIALIZAÇÃO DO FORMULÁRIO
 
    Registra a função de publicação no formulário HTML.
