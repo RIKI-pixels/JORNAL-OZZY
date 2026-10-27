@@ -440,7 +440,9 @@ function criarCartaoNoticia(noticia) {
     excluir.className = "botao-retro";
     excluir.textContent = "EXCLUIR";
     excluir.disabled = true;
-    excluir.title = "Exclusão disponível em breve";
+    excluir.addEventListener("click", () => {
+    excluirNoticia(noticia.id);
+   });
 
     acoes.append(editar, excluir);
 
