@@ -246,6 +246,90 @@ formulario?.addEventListener("submit", publicarNoticia);
 
 
 /* ==========================================================
+   CONTROLE DA NOTÍCIA EM EDIÇÃO
+
+   Armazena o ID da notícia selecionada.
+   null significa que o formulário está no modo de criação.
+========================================================== */
+
+let noticiaEmEdicao = null;
+
+
+/* ==========================================================
+   INICIAR EDIÇÃO DE NOTÍCIA
+
+   Executada ao clicar no botão EDITAR.
+
+   Responsabilidades:
+   - Buscar a notícia selecionada no Supabase.
+   - Preencher os campos do formulário.
+   - Identificar a notícia que será atualizada.
+   - Alterar o texto do botão para SALVAR ALTERAÇÕES.
+
+   Esta função não modifica o banco de dados.
+========================================================== */
+
+async function iniciarEdicaoNoticia(id) {
+    try {
+        const { data: noticia, error } = await supabase
+            .from("noticias")
+            .select("*")
+            .eq("id", id)
+            .is("excluido_em", null)
+            .single();
+
+        if (error) {
+            throw error;
+        }
+
+        const campos = {
+            "noticia-titulo": noticia.titulo,
+            "noticia-subtitulo": noticia.subtitulo,
+            "noticia-categoria": noticia.categoria,
+            "noticia-autor": noticia.autor,
+            "noticia-data": noticia.data_publicacao,
+            "noticia-hora": noticia.hora_publicacao?.slice(0, 5),
+            "noticia-legenda": noticia.imagem_legenda,
+            "noticia-conteudo": noticia.conteudo,
+            "noticia-citacao": noticia.citacao,
+            "noticia-citacao-autor": noticia.citacao_autor,
+            "noticia-origem": noticia.origem,
+            "noticia-setor": noticia.setor
+        };
+
+        Object.entries(campos).forEach(([idCampo, valor]) => {
+            const campo = document.getElementById(idCampo);
+
+            if (campo) {
+                campo.value = valor ?? "";
+            }
+        });
+
+        document.getElementById("noticia-destaque").checked =
+            noticia.destaque === true;
+
+        // O navegador não permite preencher arquivos automaticamente.
+        // A imagem existente será preservada até uma nova seleção.
+
+        document.getElementById("noticia-imagem").value = "";
+
+        noticiaEmEdicao = noticia.id;
+
+        botaoPublicar.textContent = "SALVAR ALTERAÇÕES";
+
+        formulario.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    } catch (erro) {
+        console.error("[OZZY] Erro ao carregar notícia:", erro);
+
+        alert("Não foi possível carregar a notícia para edição.");
+    }
+}
+
+/* ==========================================================
    6. CRIAÇÃO DOS CARTÕES DE NOTÍCIAS
 
    Executada para cada notícia retornada pelo Supabase.
@@ -296,8 +380,9 @@ function criarCartaoNoticia(noticia) {
     editar.type = "button";
     editar.className = "botao-retro";
     editar.textContent = "EDITAR";
-    editar.disabled = true;
-    editar.title = "Edição disponível em breve";
+    editar.addEventListener("click", () => {
+    iniciarEdicaoNoticia(noticia.id);
+});
 
     const excluir = document.createElement("button");
     excluir.type = "button";
