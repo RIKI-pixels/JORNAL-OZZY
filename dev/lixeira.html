@@ -9,10 +9,25 @@
 </head>
 
 <body>
-    <!-- Proteção de acesso editorial -->
-    <style>html { visibility: hidden; }</style>
-    <script type="module" src="../js/proteger-editor.js"></script>
+<!-- ========================================
+     PROTEÇÃO DA LIXEIRA EDITORIAL
 
+     Responsabilidades:
+     - Ocultar a página durante a verificação.
+     - Validar a sessão do usuário.
+     - Permitir acesso somente ao administrador.
+========================================= -->
+
+<style>
+    html {
+        visibility: hidden;
+    }
+</style>
+
+<script
+    type="module"
+    src="../js/proteger-administrador.js">
+</script>
     <!-- Interface da lixeira será implementada aqui -->
 </body>
 
