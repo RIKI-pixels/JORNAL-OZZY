@@ -148,14 +148,17 @@ function criarCartaoLixeira(noticia) {
     const acoes = document.createElement("div");
     acoes.className = "dev-item-acoes";
 
-    const restaurar = document.createElement("button");
-    restaurar.type = "button";
-    restaurar.className = "botao-retro";
-    restaurar.textContent = "RESTAURAR";
-    restaurar.disabled = true;
-    restaurar.title = "Restauração disponível em breve";
+const restaurar = document.createElement("button");
 
-    acoes.appendChild(restaurar);
+restaurar.type = "button";
+restaurar.className = "botao-retro";
+restaurar.textContent = "RESTAURAR";
+
+restaurar.addEventListener("click", () => {
+    restaurarNoticia(noticia.id);
+});
+
+acoes.appendChild(restaurar);
 
     artigo.append(id, informacoes, categoria, data, acoes);
 
