@@ -28,7 +28,115 @@
     type="module"
     src="../js/proteger-administrador.js">
 </script>
-    <!-- Interface da lixeira será implementada aqui -->
+    
+<!-- ========================================
+     CABEÇALHO ADMINISTRATIVO
+========================================= -->
+
+<header class="dev-topo">
+
+    <div class="dev-identidade">
+        <span class="dev-sistema">
+            REDE_OZZY // ADMINISTRAÇÃO
+        </span>
+
+        <h1>Jornal Ozzy</h1>
+
+        <p>
+            Lixeira Editorial — Terra-Nhova
+        </p>
+    </div>
+
+    <div class="dev-status">
+        <span>ACESSO</span>
+        <strong>ADMINISTRADOR</strong>
+    </div>
+
+</header>
+
+
+<!-- ========================================
+     NAVEGAÇÃO
+========================================= -->
+
+<nav class="dev-menu">
+
+    <a href="index.html">
+        PAINEL
+    </a>
+
+    <a href="noticias.html">
+        NOTÍCIAS
+    </a>
+
+    <a href="quadrinhos.html">
+        QUADRINHOS
+    </a>
+
+    <a href="lixeira.html" class="ativo">
+        LIXEIRA
+    </a>
+
+</nav>
+
+
+<!-- ========================================
+     LISTAGEM DE NOTÍCIAS EXCLUÍDAS
+
+     O JavaScript preencherá esta seção
+     com os registros do Supabase.
+========================================= -->
+
+<main class="dev-container">
+
+    <section class="dev-janela dev-publicacoes">
+
+        <div class="dev-barra">
+
+            <span>LIXEIRA_NOTICIAS.DAT</span>
+
+            <span id="lixeira-total">
+                000 REGISTROS
+            </span>
+
+        </div>
+
+        <div class="dev-conteudo">
+
+            <p class="dev-ajuda">
+                Publicações excluídas podem ser
+                restauradas pelo administrador.
+                Nenhum registro será apagado
+                definitivamente nesta área.
+            </p>
+
+            <div class="dev-lista-cabecalho">
+                <span>ID</span>
+                <span>PUBLICAÇÃO</span>
+                <span>CATEGORIA</span>
+                <span>DATA</span>
+                <span>AÇÕES</span>
+            </div>
+
+            <div
+                id="lixeira-noticias-lista"
+                style="display: contents;"
+            >
+                <!-- Notícias excluídas aparecerão aqui -->
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="dev-rodape">
+        REDE OZZY //
+        SISTEMA ADMINISTRATIVO //
+        TERRA-NHOVA
+    </div>
+
+</main>
+
 </body>
 
 </html>
