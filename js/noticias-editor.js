@@ -435,14 +435,15 @@ function criarCartaoNoticia(noticia) {
     iniciarEdicaoNoticia(noticia.id);
 });
 
-    const excluir = document.createElement("button");
-    excluir.type = "button";
-    excluir.className = "botao-retro";
-    excluir.textContent = "EXCLUIR";
-    excluir.disabled = true;
-    excluir.addEventListener("click", () => {
+const excluir = document.createElement("button");
+
+excluir.type = "button";
+excluir.className = "botao-retro";
+excluir.textContent = "EXCLUIR";
+
+excluir.addEventListener("click", () => {
     excluirNoticia(noticia.id);
-   });
+});
 
     acoes.append(editar, excluir);
 
