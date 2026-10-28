@@ -19,6 +19,94 @@ const SUPABASE_KEY = "sb_publishable_Z-NFJxfxXl53L0DbejvmOQ_1q-_ZVc_";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 
+
+/* ==========================================================
+   RESTAURAR NOTÍCIA EXCLUÍDA
+
+   Executada quando o administrador clica em RESTAURAR.
+
+   Responsabilidades:
+   - Solicitar confirmação da restauração.
+   - Validar a sessão e o cargo do usuário.
+   - Remover as informações de exclusão lógica.
+   - Atualizar a listagem da lixeira.
+
+   A autorização definitiva também depende das
+   políticas RLS configuradas no Supabase.
+========================================================== */
+
+async function restaurarNoticia(id) {
+    const confirmado = window.confirm(
+        "Deseja restaurar esta notícia?"
+    );
+
+    if (!confirmado) {
+        return;
+    }
+
+    try {
+        const { data: usuario, error: erroUsuario } =
+            await supabase.auth.getUser();
+
+        if (erroUsuario || !usuario.user) {
+            throw new Error("Sessão inválida.");
+        }
+
+        const { data: perfil, error: erroPerfil } =
+            await supabase
+                .from("perfis")
+                .select("cargo")
+                .eq("id", usuario.user.id)
+                .single();
+
+        if (
+            erroPerfil ||
+            perfil?.cargo !== "administrador"
+        ) {
+            throw new Error(
+                "Apenas administradores podem restaurar notícias."
+            );
+        }
+
+        const { data, error } = await supabase
+            .from("noticias")
+            .update({
+                excluido_em: null,
+                excluido_por: null,
+                atualizado_por: usuario.user.id
+            })
+            .eq("id", id)
+            .not("excluido_em", "is", null)
+            .select("id");
+
+        if (error) {
+            throw error;
+        }
+
+        if (!data || data.length !== 1) {
+            throw new Error(
+                "A notícia não foi restaurada. Verifique as permissões."
+            );
+        }
+
+        window.alert("Notícia restaurada com sucesso!");
+
+        await carregarLixeira();
+
+    } catch (erro) {
+        console.error(
+            "[OZZY] Erro ao restaurar notícia:",
+            erro
+        );
+
+        window.alert(
+            "Não foi possível restaurar a notícia: " +
+            erro.message
+        );
+    }
+}
+
+
 /* ==========================================================
    CRIAR CARTÃO DE NOTÍCIA EXCLUÍDA
 
