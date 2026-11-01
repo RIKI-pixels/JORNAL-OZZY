@@ -97,3 +97,70 @@ function validarQuadrinho(quadrinho) {
 
     return true;
 }
+
+/* ==========================================================
+   4. ENVIAR IMAGEM DO QUADRINHO
+
+   Executada durante a publicação de um quadrinho.
+
+   Responsabilidades:
+   - Identificar a imagem selecionada.
+   - Validar o formato e o tamanho do arquivo.
+   - Gerar um nome único para evitar substituições.
+   - Enviar a imagem ao Supabase Storage.
+   - Retornar a URL pública da imagem.
+========================================================== */
+
+async function enviarImagemQuadrinho() {
+
+    const campoImagem =
+        document.getElementById("quadrinho-imagem");
+
+    const arquivo = campoImagem?.files?.[0];
+
+    if (!arquivo) {
+        throw new Error("Selecione uma imagem para o quadrinho.");
+    }
+
+    const extensoes = {
+        "image/jpeg": "jpg",
+        "image/png": "png",
+        "image/webp": "webp",
+        "image/gif": "gif"
+    };
+
+    if (!extensoes[arquivo.type]) {
+        throw new Error(
+            "Utilize uma imagem JPG, PNG, WEBP ou GIF."
+        );
+    }
+
+    const tamanhoMaximo = 10 * 1024 * 1024;
+
+    if (arquivo.size > tamanhoMaximo) {
+        throw new Error(
+            "A imagem deve ter no máximo 10 MB."
+        );
+    }
+
+    const nomeArquivo =
+        `${crypto.randomUUID()}.${extensoes[arquivo.type]}`;
+
+    const { error } = await supabase.storage
+        .from("imagens-quadrinhos")
+        .upload(nomeArquivo, arquivo, {
+            contentType: arquivo.type,
+            upsert: false
+        });
+
+    if (error) {
+        throw error;
+    }
+
+    const { data } = supabase.storage
+        .from("imagens-quadrinhos")
+        .getPublicUrl(nomeArquivo);
+
+    return data.publicUrl;
+}
+
