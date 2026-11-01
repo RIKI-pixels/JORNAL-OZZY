@@ -164,3 +164,98 @@ async function enviarImagemQuadrinho() {
     return data.publicUrl;
 }
 
+
+/* ==========================================================
+   5. PUBLICAR QUADRINHO
+
+   Executada quando o editor envia o formulário.
+
+   Responsabilidades:
+   - Validar os campos obrigatórios.
+   - Confirmar a sessão do usuário.
+   - Enviar a imagem ao Supabase Storage.
+   - Cadastrar o quadrinho no banco de dados.
+   - Informar o resultado da publicação.
+   - Limpar o formulário após o sucesso.
+========================================================== */
+
+async function publicarQuadrinho(evento) {
+
+    evento.preventDefault();
+
+    const textoOriginal = botaoPublicar?.textContent;
+
+    try {
+        const quadrinho = coletarDadosQuadrinho();
+
+        validarQuadrinho(quadrinho);
+
+        const { data: usuario, error: erroUsuario } =
+            await supabase.auth.getUser();
+
+        if (erroUsuario || !usuario.user) {
+            throw new Error(
+                "Sua sessão expirou. Faça login novamente."
+            );
+        }
+
+        if (botaoPublicar) {
+            botaoPublicar.disabled = true;
+            botaoPublicar.textContent = "PUBLICANDO...";
+        }
+
+        quadrinho.imagem_url =
+            await enviarImagemQuadrinho();
+
+        const { error } = await supabase
+            .from("quadrinhos")
+            .insert({
+                ...quadrinho,
+                criado_por: usuario.user.id,
+                atualizado_por: usuario.user.id
+            });
+
+        if (error) {
+            throw error;
+        }
+
+        window.alert("Quadrinho publicado com sucesso!");
+
+        formulario.reset();
+
+    } catch (erro) {
+
+        console.error(
+            "[OZZY] Erro ao publicar quadrinho:",
+            erro
+        );
+
+        window.alert(
+            "Não foi possível publicar o quadrinho: " +
+            erro.message
+        );
+
+    } finally {
+
+        if (botaoPublicar) {
+            botaoPublicar.disabled = false;
+            botaoPublicar.textContent = textoOriginal;
+        }
+    }
+}
+
+
+/* ==========================================================
+   6. INICIALIZAR PUBLICAÇÃO
+
+   Executada quando o módulo é carregado.
+
+   Responsabilidade:
+   - Conectar o formulário à função de publicação.
+========================================================== */
+
+formulario?.addEventListener(
+    "submit",
+    publicarQuadrinho
+);
+
