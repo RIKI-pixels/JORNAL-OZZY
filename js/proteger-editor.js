@@ -95,8 +95,39 @@ async function verificarAcessoEditorial() {
             return;
         }
 
-        /* 3.3 — Liberar painel */
-        document.documentElement.style.visibility = "visible";
+  /* ==========================================================
+   3.3 — LIBERAR ACESSO ADMINISTRATIVO
+
+   Executado após validar a sessão e o cargo.
+
+   Responsabilidades:
+   - Identificar se o usuário é administrador.
+   - Exibir o botão ADMINISTRAÇÃO somente nesse caso.
+   - Manter o botão oculto para editores comuns.
+========================================================== */
+
+const menuAdministracao =
+    document.getElementById("menu-administracao");
+
+if (
+    menuAdministracao &&
+    perfil.cargo === "administrador"
+) {
+    menuAdministracao.hidden = false;
+    menuAdministracao.style.display = "";
+}
+
+
+/* ==========================================================
+   3.4 — LIBERAR PAINEL EDITORIAL
+
+   Executado após a validação das permissões.
+
+   Responsabilidade:
+   - Tornar a página visível ao usuário autorizado.
+========================================================== */
+
+document.documentElement.style.visibility = "visible";
 
         console.log(
             "[OZZY] Tempo total da proteção:",
